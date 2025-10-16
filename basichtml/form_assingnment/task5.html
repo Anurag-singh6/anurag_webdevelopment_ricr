@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task 5</title>
+  </head>
+  <body>
+    <h4 align="center">APPLICATION FORM</h4>
+    <fieldset>
+      <legend>Pesonal Details</legend>
+      <form>
+        <label for="name">Applicant's full name</label>
+        <select name="pro" id="pro">
+          <option value="select">--Select--</option>
+          <option value="mr">Mr.</option>
+          <option value="ms">Mrs.</option>
+        </select>
+        <input type="text" />
+        <label for="care">Care Of</label>
+        Parents<input type="radio" name="care" id="care" checked />
+        Guardian<input type="radio" name="care" id="care" />
+        <br />
+        <br />
+        <label for="fname">Father's Name</label>
+        <select name="pro" id="pro" disabled>
+          <option value="mr">Mr.</option>
+        </select>
+        <input type="text" name="fname" id="fname" />
+        <label for="mname">Mother's Name</label>
+        <select name="pro" id="pro" disabled>
+          <option value="ms">Mrs</option>
+        </select>
+        <input type="text" name="mname" id="mname" />
+        <br />
+        <br />
+        <label for="gender">Gender</label>
+        Male<input type="radio" name="gen" id="gen" />Female<input
+          type="radio"
+          name="gen"
+          id="gen"
+        />Other<input type="radio" name="gen" id="gen" />
+        <label for="dob">Date of Birth</label>
+        <input type="date" name="dob" id="dob" />
+        <br />
+        <br />
+        <label for="satus">Marital Status</label>
+        <select name="satus" id="satus">
+          <option value="select">--Select--</option>
+          <option value="mary">Married</option>
+          <option value="nmarry">Not Married</option>
+        </select>
+        <label for="cat">Category</label>
+        <select name="select" id="select">
+          <option value="1">--Select--</option>
+          <option value="gen">Gen</option>
+          <option value="obc">OBC</option>
+          <option value="sc">SC</option>
+          <option value="st">ST</option>
+        </select>
+        <br />
+        <br />
+        <label for="hand">Handicapped</label>
+        No<input type="radio" name="hand" id="hand" checked /> Yes<input
+          type="radio"
+          name="hand"
+          id="hand"
+        />
+        <label for="exser">Ex-Serviceman</label>
+        No<input type="radio" name="exser" id="exser" checked /> Yes<input
+          type="radio"
+          name="exser"
+          id="exser"
+        />
+        <br />
+        <br />
+        <label for="ews">EWS</label>
+        No<input type="radio" name="ews" id="ews" checked /> Yes<input
+          type="radio"
+          name="ews"
+          id="ews"
+        />
+        <label for="religion">Religion</label>
+        <select name="select" id="select">
+          <option value="select">--Select--</option>
+          <option value="hindu">Hindu</option>
+          <option value="sikh">Sikh</option>
+          <option value="muslim">Muslim</option>
+          <option value="christ">Christian</option>
+        </select>
+        <br />
+        <br />
+      </form>
+    </fieldset>
+    <fieldset>
+      <legend>Contact Details</legend>
+      <label for="mobile">Mobile Number</label>
+      <input type="number" name="mobile" id="mobile" />
+      <label for="email">Email ID</label>
+      <input type="email" name="email" id="email" />
+      <br />
+      <br />
+      <label for="address">Address Line 1</label>
+      <input type="text" name="address" id="address" />
+      <label for="address2">Address Line 2</label>
+      <input type="text" name="address2" id="address2" />
+      <br />
+      <br />
+      <label for="city">City</label>
+      <input type="text" name="city" id="city" />
+      <label for="state">State</label>
+      <select name="state" id="state">
+        <option value="0">Select any One</option>
+        <option value="1">Andhra Pradesh</option>
+        <option value="2">Arunachal Pradesh</option>
+        <option value="3">Assam</option>
+        <option value="4">Bihar</option>
+        <option value="5">Chhattisgarh</option>
+        <option value="6">Goa</option>
+        <option value="7">Gujarat</option>
+        <option value="8">Haryana</option>
+        <option value="9">Himachal Pradesh</option>
+        <option value="10">Jammu and Kashmir</option>
+        <option value="11">Jharkhand</option>
+        <option value="12">Karnataka</option>
+        <option value="13">Kerala</option>
+        <option value="14">Madhaya Pradesh</option>
+        <option value="15">Maharastra</option>
+        <option value="16">Manipur</option>
+        <option value="17">Meghalaya</option>
+        <option value="18">Mizoram</option>
+        <option value="19">Nagaland</option>
+        <option value="20">Orissa</option>
+        <option value="21">Punjab</option>
+        <option value="22">Rajasthan</option>
+        <option value="23">Sikkim</option>
+        <option value="24">Tamil Nadu</option>
+        <option value="25">Telangana</option>
+        <option value="26">Tripura</option>
+        <option value="27">Uttar Pradesh</option>
+        <option value="28">Uttarakhand</option>
+        <option value="29">West Bengal</option>
+      </select>
+      <br />
+      <br />
+      <label for="pin">Pin Code</label>
+      <input type="number" name="pin" id="pin" />
+      <br />
+      <br />
+    </fieldset>
+    <fieldset>
+      <legend>Qualification Details</legend>
+      <table>
+        <tr>
+          <th>Sr.No.</th>
+          <th>Qualification</th>
+          <th>Board/University</th>
+          <th>Passing Year</th>
+          <th>Max Marks</th>
+          <th>Marks Obtain</th>
+          <th>Percentage</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>
+            <select name="qualify" id="qualify">
+              <option value="select">--Select--</option>
+              <option value="1">10th</option>
+            </select>
+          </td>
+          <td><input type="text" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>
+            <select name="qualify" id="qualify">
+              <option value="select">--Select--</option>
+              <option value="1">12th</option>
+            </select>
+          </td>
+          <td><input type="text" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>
+            <select name="qualify" id="qualify">
+              <option value="select">--Select--</option>
+              <option value="garduation">UG</option>
+            </select>
+          </td>
+          <td><input type="text" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>
+            <select name="qualify" id="qualify">
+              <option value="select">--Select--</option>
+              <option value="post">PG</option>
+            </select>
+          </td>
+          <td><input type="text" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+          <td><input type="number" name="board" id="board" /></td>
+        </tr>
+      </table>
+      <br />
+    </fieldset>
+    <fieldset>
+      <legend>Language Knowledge</legend>
+      <table>
+        <tr>
+          <th><label for="lang">Language</label></th>
+          <th>Reading</th>
+          <th>Writing</th>
+          <th>Spoken</th>
+        </tr>
+        <tr>
+          <td><label for="lang">Hindi</label></td>
+          <td><input type="checkbox" name="lang" id="lang" /></td>
+          <td><input type="checkbox" name="lang" id="lang" /></td>
+          <td><input type="checkbox" /></td>
+        </tr>
+        <tr>
+          <td><label for="lang">English</label></td>
+          <td><input type="checkbox" name="lang" id="lang" /></td>
+          <td><input type="checkbox" name="lang" id="lang" /></td>
+          <td><input type="checkbox" name="lang" id="lang" /></td>
+        </tr>
+        <tr>
+          <td><label for="lang">Urdu</label></td>
+          <td><input type="checkbox" name="lang" id="lang" /></td>
+          <td><input type="checkbox" name="lang" id="lang" /></td>
+          <td><input type="checkbox" name="lang" id="lang" /></td>
+        </tr>
+      </table>
+      <br />
+    </fieldset>
+    <fieldset>
+      <legend>Identification Details</legend>
+      <label for="aid">Aadhar Card Number</label>
+      <input type="number" name="aid" id="aid" />
+      <label for="pan">PAN Card Number</label>
+      <input type="text" name="pan" id="pan" />
+      <br />
+      <label for="upload">Upload Photo</label>
+      <input type="file" name="upload" id="upload" />
+      <label for="upsign">Upload Signature</label>
+      <input type="file" name="upsign" id="upsign" />
+      <br />
+    </fieldset>
+    <center>
+      <br />
+      <button>Submit</button>
+      <button>Back</button>
+    </center>
+  </body>
+</html>
