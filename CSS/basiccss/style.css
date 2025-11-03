@@ -1,0 +1,14 @@
+*{
+    background-color: azure;
+}
+h1{
+    background:linear-gradient(90deg,pink,red);
+}
+p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+    text-shadow: 5px, 5px, 34px, black;
+    color: brown;
+    
+}

@@ -6,8 +6,71 @@
     <title>task 6</title>
   </head>
   <body>
-    <div>
-      <img src="./images/nurse.jpg" alt="doctor photo" />
-    </div>
+    <table>
+      <tr>
+        <td><img src="./images/doc.jpg" width="300" height="500" /></td>
+        <td>
+          <form>
+            <h1>Doctor Appointment Form</h1>
+            <hr color="red" />
+            <label for="date"> Application Date</label>
+            <input type="date" name="appd" id="date" />
+            <br />
+            <br />
+            <label for="time">Appointment Time</label>
+            <input type="time" name="timea" id="time" />
+            <br />
+            <br />
+            <label for="name">Name</label>
+            <input type="text" name="fname" id="name" placeholder="First" />
+            <input type="text" name="lname" id="name" placeholder="Last" />
+            <br />
+            <br />
+            <label for="gender">Gender</label>
+            Male<input type="radio" name="gen" id="gen" /> Female<input
+              type="radio"
+              name="gen"
+              id="gen"
+            />
+            <br />
+            <br />
+            <label for="phone">Phone</label>
+            <input type="number" name="pno" id="pno" />
+            <br />
+            <br />
+            <label for="address">Address</label>
+            <input
+              type="text"
+              name="address"
+              id="address"
+              placeholder="city"
+            />&nbsp;&nbsp;
+            <input
+              type="text"
+              name="address"
+              id="address"
+              placeholder="state"
+            />
+            <br />
+            <br />
+            <label for="querry">Your Querry</label>
+            <textarea name="querry" id="querry" rows="3" cols="20"></textarea>
+            <br />
+            <br />
+            <label for="appoint">Appointment Type</label>
+            <label for="select"
+              >Select which appointment type(s) you require</label
+            >
+            <br />
+            <input type="checkbox" name="sapp" id="sapp" /> Cervix checkup<br />
+            <input type="checkbox" name="sapp" id="sapp" /> Heart checkup<br />
+            <input type="checkbox" name="sapp" id="sapp" /> Eye checkup<br />
+            <input type="checkbox" name="sapp" id="sapp" /> Hearing Test<br />
+            <br />
+            <button>Submit</button>
+          </form>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
