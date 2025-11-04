@@ -1,0 +1,55 @@
+body
+{
+    background-color: azure;
+}
+.loginform
+{
+   border: 1px solid black;
+   width: 400px;
+   height: 400px;
+   border-radius: 5px;
+   margin: 10px auto;
+   padding: 10px;
+   background-color: white;
+}
+#loginheading{
+    color: rgb(41, 23, 245);
+}
+.labelfamily{
+    color: purple;
+    font-size: large;
+}
+.inputfamily{
+    padding: 10px;
+    #username{
+        padding: 5px;
+        border: 1px solid black;
+        border-radius: 25px;
+        outline-color: blueviolet;
+    }
+    #password{
+        padding: 5px;
+        border: 1px solid black;
+        border-radius: 25px;
+        outline-color: blueviolet;
+    }
+}
+.buttonfamily{
+    padding: 10px;
+}
+#sumbit{
+    padding: 10px;
+    margin: 5px;
+    background-color: rgb(55, 191, 55);
+    color: white;
+    border: 1px solid green;
+    border-radius: 10px;
+}
+#reset{
+    padding: 10px;
+    margin: 5px;
+    background-color: rgb(167, 56, 56);
+    color: white;
+    border: 1px solid red;
+    border-radius: 10px;
+}
