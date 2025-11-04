@@ -1,8 +1,10 @@
-*{
-    background-color: azure;
-}
+
 h1{
-    background:linear-gradient(90deg,pink,red);
+    background:linear-gradient(90deg,pink,blue,yellow);
+}
+.head2
+{
+    background: radial-gradient(orange,white,aqua);
 }
 p{
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -11,4 +13,10 @@ p{
     text-shadow: 5px, 5px, 34px, black;
     color: brown;
     
+}
+#box
+{
+    width: 40%;
+    border: 14px solid red;
+    box-shadow: 10px 10px 5px 2px;
 }
