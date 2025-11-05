@@ -1,16 +1,17 @@
 body
 {
-    background-color: azure;
+    background: url(backimg.jpg);
+    background-size: cover;
 }
 .loginform
 {
    border: 1px solid black;
    width: 400px;
    height: 400px;
-   border-radius: 5px;
+   border-radius: 25px;
    margin: 10px auto;
    padding: 10px;
-   background-color: white;
+   background-color: rgba(255, 255, 255, 0.439);
 }
 #loginheading{
     color: rgb(41, 23, 245);
@@ -52,4 +53,26 @@ body
     color: white;
     border: 1px solid red;
     border-radius: 10px;
+}
+#sumbit:hover{
+    padding: 10px;
+    margin: 5px;
+    background-color: rgb(47, 41, 211);
+    color: white;
+    border: 1px solid green;
+    border-radius: 10px;
+}
+#reset:hover{
+    padding: 10px;
+    margin: 5px;
+    background-color: rgb(17, 17, 17);
+    color: white;
+    border: 1px solid red;
+    border-radius: 10px;
+}
+#submit:active{
+    background-color: brown;
+}
+#reset:active{
+    background-color: yellow;
 }
