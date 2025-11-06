@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  border: 1px solid black;
+  background-color: blue;
+  color: white;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+}
+.links {
+  display: flex;
+  gap: 20px;
+}
+button {
+  background-color: red;
+  color: white;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+}
