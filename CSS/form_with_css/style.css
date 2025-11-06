@@ -19,6 +19,7 @@ body
 .labelfamily{
     color: purple;
     font-size: large;
+    font-weight: bold;
 }
 .inputfamily{
     padding: 10px;
