@@ -11,6 +11,7 @@ body {
   height: fit-content;
   background-color: white;
   border-radius: 5px;
+  display: inline-block;
 }
 .headlogin {
   padding: 10px;
@@ -43,6 +44,13 @@ body {
     color: rgb(58, 58, 251);
     font-weight: bold;
   }
+  a:hover {
+    padding-left: 40px;
+    margin-left: 40px;
+    text-decoration: none;
+    color: rgb(251, 58, 58);
+    font-weight: bold;
+  }
 }
 .buttonfamily {
   padding: 10px;
@@ -65,5 +73,78 @@ body {
     text-decoration: none;
     color: rgb(58, 58, 251);
   }
+  #sign:hover {
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(251, 58, 58);
+  }
 }
-
+.registrationform {
+  padding: 10px;
+  margin: 10px auto;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  border: 1px solid black;
+  width: fit-content;
+  height: fit-content;
+  background-color: white;
+  border-radius: 5px;
+  display: inline-block;
+}
+.reglogin {
+  padding: 10px;
+  margin: 5px;
+  #rhead {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: rgb(58, 58, 251);
+  }
+}
+.inputrfamily {
+  #name {
+    width: 300px;
+    padding: 10px;
+    border: none;
+  }
+  #email {
+    width: 300px;
+    padding: 10px;
+    border: none;
+  }
+  #password {
+    width: 300px;
+    padding: 10px;
+    border: none;
+  }
+}
+.rcheckbox {
+  padding: 2px;
+  margin: 5px;
+}
+.buttonrfamily {
+  padding: 10px;
+  #login {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(58, 58, 251);
+    border-color: rgb(58, 58, 251);
+    color: white;
+    width: 300px;
+  }
+}
+.rsingup {
+  padding: 10px;
+  #do {
+    margin-left: 30px;
+  }
+  #log {
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(58, 58, 251);
+  }
+  #log:hover {
+    font-weight: bold;
+    text-decoration: none;
+    color: rgb(251, 58, 58);
+  }
+}
