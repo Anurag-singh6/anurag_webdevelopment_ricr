@@ -1,0 +1,18 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.profile {
+  width: 260px;
+  height: 638px;
+  border: 1px solid black;
+}
+img {
+  margin: 10px 20px 30px 22px;
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  border: 5px solid black;
+  border-radius: 50%;
+  overflow: hidden;
+}

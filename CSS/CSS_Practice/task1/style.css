@@ -33,6 +33,9 @@ body {
     padding: 10px;
     border: none;
   }
+  i{
+    color: grey;
+  }
 }
 .remember {
   padding: 2px;
@@ -93,7 +96,7 @@ body {
 }
 .reglogin {
   padding: 10px;
-  margin: 5px;
+  margin: 10px;
   #rhead {
     text-decoration: underline;
     text-decoration-thickness: 3px;
@@ -115,6 +118,9 @@ body {
     width: 300px;
     padding: 10px;
     border: none;
+  }
+  i{
+    color: grey;
   }
 }
 .rcheckbox {
