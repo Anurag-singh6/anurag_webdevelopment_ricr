@@ -1,0 +1,17 @@
+#container{
+width: 90%;
+margin: auto;
+height: 80vh;
+display: flex;
+align-items: center;
+}
+#formfields{
+
+}
+#image{
+    height: 100%;
+    img{
+        width: 500px;
+        height: inherit;
+    }
+}
