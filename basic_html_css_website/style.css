@@ -311,5 +311,8 @@
     width: 400px;
     height: fit-content;
     display: inline-block;
+    img{
+      border-radius: 10px;
+    }
   }
 }
