@@ -1,0 +1,315 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+.navbar {
+  background-color: rgba(255, 255, 255, 0.945);
+  color: black;
+  padding: 15px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  h3 {
+    font-size: 18px;
+  }
+  .link {
+    padding: 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    #links {
+      a {
+        text-decoration: none;
+        color: black;
+        font-size: medium;
+        margin-right: 10px;
+      }
+    }
+  }
+  #button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    #signin {
+      background-color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      margin-right: 30px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #blocks {
+      background-color: black;
+      color: white;
+      width: 90px;
+      height: 40px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 2px black;
+      cursor: pointer;
+    }
+  }
+}
+.hero {
+  display: inline-block;
+  .container {
+    h1 {
+      margin-top: 50px;
+      margin-left: 25px;
+      font-size: 48px;
+    }
+    p {
+      margin-top: 20px;
+      margin-left: 25px;
+      color: grey;
+      font-size: 20px;
+    }
+  }
+  .emailsection {
+    margin-left: 25px;
+    label {
+      font-size: 14px;
+    }
+    #email {
+      width: 360px;
+      height: 40px;
+      border: 1px solid grey;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    #required {
+      width: 150px;
+      height: 40px;
+      color: white;
+      background-color: black;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #below {
+      margin-top: 10px;
+      font-size: medium;
+      color: grey;
+    }
+    a {
+      color: grey;
+    }
+  }
+}
+.profileimage {
+  width: 670px;
+  height: 500px;
+  display: inline-block;
+  margin-left: 70px;
+  margin-top: 30px;
+  img {
+    width: 670px;
+    height: 500px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+}
+.clients {
+  margin-left: 25px;
+  margin-top: 80px;
+  #chead {
+    text-align: center;
+    font-weight: bold;
+  }
+  .logosection {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    gap: 30px;
+    justify-content: center;
+    img {
+      width: 150px;
+    }
+  }
+}
+.skills {
+  margin-top: 80px;
+  #shead {
+    font-weight: bold;
+    text-align: center;
+  }
+  h1 {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 48px;
+  }
+  #headbelow {
+    margin-top: 20px;
+    color: grey;
+    text-align: center;
+    font-size: 20px;
+  }
+  .discoverskill {
+    margin-top: 100px;
+    margin-left: 100px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    #sk {
+      width: 330px;
+      height: fit-content;
+      i {
+        padding: 10px;
+        margin-left: 140px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        font-size: 40px;
+      }
+      h3 {
+        text-align: center;
+      }
+      p {
+        margin-top: 20px;
+        text-align: center;
+        color: grey;
+      }
+    }
+  }
+}
+.projects {
+  margin-top: 100px;
+  h1 {
+    text-align: center;
+    font-size: 36px;
+  }
+  #probelow {
+    margin-top: 30px;
+    text-align: center;
+    color: grey;
+    font-size: 20px;
+  }
+  #projectimage {
+    margin-top: 100px;
+    margin-left: 25px;
+    width: 300px;
+    height: fit-content;
+    display: inline-block;
+    img {
+      width: 300px;
+      display: inline-block;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    a {
+      text-decoration: none;
+      font-size: 20px;
+      color: black;
+      font-weight: bold;
+    }
+    p {
+      margin-top: 20px;
+      font-size: 16px;
+      color: grey;
+    }
+    button {
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 8px;
+      background-color: black;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 12px;
+    }
+  }
+}
+.resume {
+  margin-top: 100px;
+  margin-left: 25px;
+  #myresume {
+    width: 450px;
+    display: inline-block;
+    h1 {
+      font-size: 36px;
+    }
+    #resumebel {
+      font-size: 16px;
+      color: grey;
+      width: 450px;
+    }
+    button {
+      margin-top: 30px;
+      margin-left: 30px;
+      border: none;
+      background-color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+  #qualify {
+    width: 450px;
+    margin-left: 400px;
+    display: inline-block;
+    p {
+      margin-top: 5px;
+      font-size: 16px;
+      color: grey;
+    }
+    i {
+      font-size: 30px;
+    }
+  }
+}
+.clientsay {
+  margin-top: 100px;
+  #ch {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 36px;
+  }
+  #cbelow {
+    text-align: center;
+    color: grey;
+    font-size: 20px;
+  }
+  #mobileapp {
+    margin-top: 100px;
+    margin-left: 200px;
+    width: 400px;
+    height: fit-content;
+    display: inline-block;
+    #mobh {
+      font-size: 30px;
+    }
+    #mobelow {
+      margin-top: 20px;
+      color: grey;
+      font-size: 16px;
+    }
+    h4 {
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  }
+  #clientpic img {
+    width: 40px;
+    height: 40px;
+    margin-top: 15px;
+    border-radius: 10px;
+  }
+  .imagec {
+    margin-top: 100px;
+    margin-left: 200px;
+    width: 400px;
+    height: fit-content;
+    display: inline-block;
+  }
+}
