@@ -14,12 +14,11 @@
     <nav class="navbar">
       <h3>Material Tailwind</h3>
       <div class="link">
-        <i class="fas fa-file-alt"></i>
-        <nav id="links"><a href="">Page</a></nav>
-        <i class="fas fa-user"></i>
-        <nav id="links"><a href="">Account</a></nav>
-        <i class="fas fa-file"></i>
-        <nav id="links"><a href="">Docs</a></nav>
+        <nav id="links"><i class="fas fa-file-alt"></i><a href="">Page</a></nav>
+
+        <nav id="links"><i class="fas fa-user"></i><a href="">Account</a></nav>
+
+        <nav id="links"><i class="fas fa-file"></i><a href="">Docs</a></nav>
       </div>
       <div id="button">
         <button id="signin">SIGH IN</button>
@@ -35,18 +34,18 @@
           of web development, where creativity meets functionality. <br />
           <br />
         </p>
-      </div>
-      <div class="emailsection">
-        <form>
-          <label for="email">Your email</label> <br />
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Enter your email"
-          />&nbsp;&nbsp; <button id="required">REQUIRE OFFER</button> <br />
-          <div id="below">Read my <a href="">Terms and Conditions</a></div>
-        </form>
+        <div class="emailsection">
+          <form>
+            <label for="email">Your email</label> <br />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter your email"
+            />&nbsp;&nbsp; <button id="required">REQUIRE OFFER</button> <br />
+            <div id="below">Read my <a href="">Terms and Conditions</a></div>
+          </form>
+        </div>
       </div>
     </section>
     <div class="profileimage">
@@ -164,7 +163,7 @@
           discover and explore local restaurants <br />
           and cuisines
         </p>
-        <button>SEE DETAILS</button>
+        <button id="see">SEE DETAILS</button>
       </div>
       <div id="projectimage">
         <img src="./images/blog2.svg" alt="landing" /><br />
@@ -174,7 +173,7 @@
           website Summer Campaign. Form <br />
           development included.
         </p>
-        <button>SEE DETAILS</button>
+        <button id="see">SEE DETAILS</button>
       </div>
       <div id="projectimage">
         <img src="./images/blog3.svg" alt="mobile" /><br />
@@ -184,7 +183,7 @@
           discover and explore local restaurants <br />
           and cuisines
         </p>
-        <button>SEE DETAILS</button>
+        <button id="see">SEE DETAILS</button>
       </div>
       <div id="projectimage">
         <img src="./images/blog4.svg" alt="ecom" /><br />
@@ -194,7 +193,7 @@
           the latest and greatest gadgets and <br />
           accessories.
         </p>
-        <button>SEE DETAILS</button>
+        <button id="see">SEE DETAILS</button>
       </div>
       <div id="projectimage">
         <img src="./images/blog-1.svg" alt="mobile" /><br />
@@ -204,7 +203,7 @@
           discover and explore local restaurants <br />
           and cuisines
         </p>
-        <button>SEE DETAILS</button>
+        <button id="see">SEE DETAILS</button>
       </div>
       <div id="projectimage">
         <img src="./images/blog2.svg" alt="landing" /><br />
@@ -214,7 +213,7 @@
           website Summer Campaign. Form <br />
           development included.
         </p>
-        <button>SEE DETAILS</button>
+        <button id="see">SEE DETAILS</button>
       </div>
       <div id="projectimage">
         <img src="./images/blog3.svg" alt="mobile" /><br />
@@ -224,7 +223,7 @@
           discover and explore local restaurants <br />
           and cuisines
         </p>
-        <button>SEE DETAILS</button>
+        <button id="see">SEE DETAILS</button>
       </div>
       <div id="projectimage">
         <img src="./images/blog4.svg" alt="ecom" /><br />
@@ -234,7 +233,7 @@
           the latest and greatest gadgets and <br />
           accessories.
         </p>
-        <button>SEE DETAILS</button>
+        <button id="see">SEE DETAILS</button>
       </div>
     </section>
     <section class="resume">
@@ -247,17 +246,17 @@
           <br />
           websites and web applications.
         </p>
-        <button>VIEW MORE &rarr;</button>
+        <button id="btnr">VIEW MORE &rarr;</button>
       </div>
       <div id="qualify">
-        <i class="fas fa-chart-bar"></i>
-        <p class="q">Bachelor of Science in Computer Science</p>
+        <i class="fas fa-chart-bar"></i
+        ><span id="qual">Bachelor of Science in Computer Science</span>
         <br />
-        <i class="fas fa-puzzle-piece"></i>
-        <p>Certified Web Developer</p>
+        <i class="fas fa-puzzle-piece"></i
+        ><span id="qual">Certified Web Developer</span>
         <br />
-        <i class="fas fa-mouse-pointer"></i>
-        <p>Frontend Framework Proficiency Certification</p>
+        <i class="fas fa-mouse-pointer"></i
+        ><span id="qual">Frontend Framework Proficiency Certification</span>
         <br />
       </div>
     </section>
@@ -290,5 +289,126 @@
         <img src="./images/avatar3.jpg" alt="" />
       </div>
     </section>
+    <section class="pc">
+      <h3 id="ph">POPULAR CLIENTS</h3>
+      <h1 id="pb">
+        Trusted by over 10,000+ <br />
+        clients
+      </h1>
+      <div id="pimg">
+        <img src="./images/logo-coinbase.svg" alt="" /><img
+          src="./images/logo-spotify.svg"
+          alt=""
+        /><img src="./images/logo-pinterest.svg" alt="" /><img
+          src="./images/logo-google.svg"
+          alt=""
+        /><img src="./images/logo-amazon.svg" alt="" /><img
+          src="./images/logo-netflix.svg"
+          alt=""
+        />
+      </div>
+    </section>
+    <section class="contactus">
+      <h1 id="contacthead">Contact Us</h1>
+      <p id="cop">
+        Ready to get started? Feel free to reach out through the <br />
+        contact form, and let's embark on a journey of innovation and <br />
+        success.
+      </p>
+      <div class="contactform">
+        <div id="formcontain">
+          <h2 id="fh">Contact Information</h2>
+          <p id="fp">
+            Fill up the form and our Team will get back to you <br />
+            within 24 hours.
+          </p>
+          <span id="detailc"
+            ><i class="fa fa-phone"></i
+            ><span id="text">+1(424) 535 3523</span></span
+          ><br />
+          <span id="detailc"
+            ><i class="fa fa-envelope"></i
+            ><span id="text">hello@mail.com</span></span
+          ><br />
+          <span id="detailc"
+            ><i class="fa fa-ticket"></i
+            ><span id="text">Open Support Ticket</span></span
+          >
+        </div>
+        <div id="cform">
+          <form action="">
+            <table>
+              <tr>
+                <td><label for="name">First Name</label></td>
+                <td><label for="name">Last Name</label></td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="text"
+                    name="name"
+                    id="fname"
+                    placeholder="eg. Lucas"
+                  />
+                  <hr id="f" />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    name="name"
+                    id="lname"
+                    placeholder="eg. Jones"
+                  />
+                  <hr id="l" />
+                </td>
+              </tr>
+            </table>
+            <label for="email">Email</label><br />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="eg. lucas@mail.com"
+            />
+            <hr id="e" />
+            <br />
+            <label for="interest">What are you interested on?</label><br />
+            <input type="radio" name="interest" id="radio" /><span id="rtext"
+              >&nbsp;Design&nbsp;&nbsp;</span
+            >
+            <input type="radio" name="interest" id="radio" /><span id="rtext"
+              >&nbsp;Development&nbsp;&nbsp;</span
+            >
+            <input type="radio" name="interest" id="radio" /><span id="rtext"
+              >&nbsp;Support&nbsp;&nbsp;</span
+            >
+            <input type="radio" name="interest" id="radio" /><span id="rtext"
+              >&nbsp;Other&nbsp;&nbsp;</span
+            >
+            <br />
+            <label for="message">Your Message</label><br />
+            <textarea name="message" id="message" rows="5" cols="83"></textarea>
+            <hr id="m" />
+            <button id="btn">SEND MESSAGE</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <hr id="fhr" />
+    <footer class="footer">
+      <div class="pfooter">
+        <p id="pf">
+          © 2025 Made with Material Tailwind by Creative Tim. Distributed by
+          ThemeWagon
+        </p>
+      </div>
+      <div class="linksf">
+        <a href="">Home</a>
+        <a href="">About Us</a>
+        <a href="">Blog</a>
+        <a href="">Service</a>
+        <button id="btnf">SUBSCRIBE</button>
+      </div>
+    </footer>
   </body>
 </html>
