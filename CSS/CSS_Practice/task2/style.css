@@ -8,6 +8,7 @@
   height: fit-content;
   border: 1px solid black;
   background-color: rgba(52, 73, 94);
+  display: inline-block;
 }
 .imgs {
   width: 260px;
@@ -64,8 +65,115 @@
     color: rgba(212, 225, 233);
     margin-bottom: 20px;
   }
-  #s{
+  #s {
     color: rgb(163, 163, 163);
     padding: 5px;
+  }
+}
+.ref {
+  h5 {
+    margin-top: 20px;
+    margin-left: 25px;
+    color: rgba(212, 225, 233);
+  }
+  h6 {
+    margin-top: 20px;
+    margin-left: 25px;
+    color: yellow;
+  }
+  #text {
+    font-size: 12px;
+    margin-left: 25px;
+    margin-top: 10px;
+    color: rgb(163, 163, 163);
+  }
+  i {
+    margin-left: 25px;
+    margin-top: 5px;
+    font-size: 14px;
+    color: rgb(57, 57, 200);
+  }
+  #contact {
+    font-size: 12px;
+    color: rgb(163, 163, 163);
+    margin-left: 2px;
+  }
+  #emailc {
+    font-size: 12px;
+    color: rgb(163, 163, 163);
+    margin-left: 2px;
+  }
+}
+.about {
+  border: 1px solid black;
+  width: 1080px;
+  display: inline-block;
+  background-color: rgb(195, 202, 205);
+  #ah {
+    color: rgb(66, 66, 136);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+  }
+  #aboutp {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+  #aboutp2 {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  #exph {
+    margin-top: 20px;
+    margin-left: 10px;
+    color: rgb(66, 66, 136);
+  }
+  #expid {
+    display: grid;
+    grid-template-columns: auto auto;
+    #expi {
+      width: 200px;
+      #c {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        color: rgb(57, 57, 200);
+      }
+      p {
+        margin-left: 10px;
+        font-size: 12px;
+      }
+      #c2 {
+        margin-top: 50px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        color: rgb(57, 57, 200);
+      }
+      #c3 {
+        margin-top: 50px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        color: rgb(57, 57, 200);
+      }
+    }
+    #expd {
+      width: 350px;
+      h4 {
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        color: rgb(57, 57, 200);
+      }
+      p {
+        margin-left: 10px;
+        border-left: 1px solid grey;
+      }
+    }
   }
 }

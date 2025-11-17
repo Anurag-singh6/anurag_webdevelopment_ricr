@@ -16,7 +16,9 @@
     />
   </head>
   <body class="bg-primary">
-    <section class="border border-black w-25 ms-5 mt-5 rounded bg-light d-inline-block">
+    <section
+      class="border border-black w-25 ms-5 mt-5 rounded bg-light d-inline-block"
+    >
       <h3 class="mt-2 ms-2">
         <span class="text-decoration-underline link-underline-primary">Lo</span
         >gin
@@ -26,7 +28,7 @@
         <input
           type="text"
           name="email"
-          id="email"
+          id="LoginEmail"
           class="border-0 w-75 ms-2 bg-light"
           placeholder="Enter your email"
         /><br />
@@ -35,22 +37,26 @@
         <input
           type="password"
           name="password"
-          id="password"
+          id="LoginPassword"
           class="border-0 w-75 ms-2 bg-light"
           placeholder="Confirm a password"
         />
         <i class="bi bi-eye ms-1"></i>
         <br />
         <hr class="ms-2 me-3" />
-        <input type="checkbox" name="check" id="check" class="ms-2" /><label
-          for="rem"
-          class="ms-1"
-          >Remember me</label
-        >
+        <input
+          type="checkbox"
+          name="check"
+          id="LoginCheckbox"
+          class="ms-2"
+        /><label for="rem" class="ms-1">Remember me</label>
         <a href="" class="text-decoration-none text-primary fw-bold ms-5"
           >Forget Password?</a
         ><br />
-        <button class="mt-4 ms-4 btn bg-primary w-75 fw-bold text-light">
+        <button
+          class="mt-4 ms-4 btn bg-primary w-75 fw-bold text-light"
+          id="LoginNow"
+        >
           Login Now
         </button>
         <br />
@@ -60,7 +66,9 @@
         >
       </form>
     </section>
-    <section class="border border-black w-25 ms-5 mt-5 rounded bg-light d-inline-block">
+    <section
+      class="border border-black w-25 ms-5 mt-5 rounded bg-light d-inline-block"
+    >
       <form>
         <h2 class="mt-2 ms-2">
           <span class="text-decoration-underline link-underline-primary"
@@ -71,49 +79,61 @@
         <input
           type="text"
           name="name"
-          id="name"
+          id="FullName"
           class="border-0 w-75 ms-2 bg-light"
           placeholder="Enter your name"
         />
-        <hr class="ms-2 me-3"/>
+        <hr class="ms-2 me-3" />
         <br />
         <i class="bi bi-envelope ms-2"></i>
         <input
           type="email"
           name="email"
-          id="email"
+          id="RegEmail"
           class="border-0 w-75 ms-2 bg-light"
           placeholder="Enter your email"
         />
-        <hr class="ms-2 me-3"/>
+        <hr class="ms-2 me-3" />
         <br />
         <i class="bi bi-lock ms-2"></i>
         <input
           type="password"
           name="password"
-          id="password"
+          id="RegPassword"
           class="border-0 w-75 ms-2 bg-light"
           placeholder="Create a password"
         />
-        <hr class="ms-2 me-3"/>
+        <hr class="ms-2 me-3" />
         <br />
         <i class="bi bi-lock ms-2"></i>
         <input
           type="password"
           name="password"
-          id="password"
+          id="RegcPassword"
           class="border-0 w-75 ms-2 bg-light"
           placeholder="Confirm a password"
         />
-        <hr class="ms-2 me-3"/>
+        <i class="bi bi-eye ms-1"></i>
+        <hr class="ms-2 me-3" />
         <br />
-        <input type="checkbox" name="checkbox" id="checkbox" class="ms-2"/><label
-          class="ms-1">I accept all terms & conditions</label
+        <input
+          type="checkbox"
+          name="checkbox"
+          id="Regcheckbox"
+          class="ms-2"
+        /><label class="ms-1">I accept all terms & conditions</label>
+        <br />
+        <button
+          class="mt-4 ms-4 btn bg-primary w-75 fw-bold text-light"
+          id="RegisterNow"
         >
+          Register Now
+        </button>
         <br />
-        <button class="mt-4 ms-4 btn bg-primary w-75 fw-bold text-light">Register Now</button>
-        <br />
-        <label id="a" class="mt-3 ms-4 mb-3"> Already have a account? </label><a href="" class="ms-1 mb-3 text-decoration-none text-primary fw-bold">Login now</a>
+        <label id="a" class="mt-3 ms-4 mb-3"> Already have a account? </label
+        ><a href="" class="ms-1 mb-3 text-decoration-none text-primary fw-bold"
+          >Login now</a
+        >
       </form>
     </section>
 
