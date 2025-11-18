@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <style>
+      button:hover {
+        transform: translateY(-5px);
+      }
+      * {
+        font-family: sans-serif;
+      }
+    </style>
+    <div
+      class="mx-auto p-2 rounded-4"
+      style="width: 800px; background-color: rgb(214, 242, 254)"
+    >
+      <div class="" style="background-color: rgb(214, 242, 254)">
+        <h2
+          class="mt-5 text-center"
+          style="font-size: 44.4px; font-weight: bold"
+        >
+          Enquiry Form
+        </h2>
+        <p class="text-secondary-emphasis text-center">
+          Have questions or need assistance? Fill out the form below to connect
+          with our team and explore your <br />
+          opportunities. <br />
+        </p>
+      </div>
+      <div class="form ms-5 me-5" style="background-color: rgb(214, 242, 254)">
+        <form>
+          <div id="pn" class="d-inline-block">
+            <label for="Person">Person Name*</label><br />
+            <input
+              type="text"
+              name="name"
+              id="FullName"
+              class="rounded me-4 border border-secondary"
+              style="width: 320px; height: 50px"
+              placeholder="Person Name"
+            /><br />
+          </div>
+          <div id="cn" class="d-inline-block">
+            <label for="Contact">Contact Number*</label><br />
+            <input
+              type="number"
+              name="mno"
+              id="MobileNumber"
+              class="rounded border border-secondary"
+              style="width: 335px; height: 50px"
+              placeholder="Contact Number"
+            /><br />
+          </div>
+          <div id="em" class="mt-3 d-inline-block">
+            <label for="Email">Email*</label><br />
+            <input
+              type="email"
+              name="email"
+              id="Email"
+              class="rounded border border-secondary me-4 mb-3"
+              style="width: 400px; height: 50px"
+              placeholder="Email"
+            /><br />
+          </div>
+          <div id="qf" class="d-inline-block">
+            <label for="Qualify">Qualification*</label><br />
+            <input
+              type="text"
+              name="qualify"
+              id="Qualification"
+              class="rounded border border-secondary"
+              style="width: 255px; height: 50px"
+              placeholder="Qualification"
+            /><br />
+          </div>
+          <label for="College">College/School Name*</label><br />
+          <input
+            type="text"
+            name="college"
+            id="CollegeName"
+            class="rounded border border-secondary mb-3"
+            style="width: 685px; height: 50px"
+            placeholder="College/School Name"
+          /><br />
+          <div id="y" class="d-inline-block">
+            <label for="year">Year*</label><br />
+            <select
+              name="y"
+              class="rounded border border-secondary me-4 mb-3"
+              id="Year"
+              style="width: 320px; height: 50px"
+            >
+              <option value="y1" selected disabled>Year</option>
+              <option value="y2">First Year</option>
+              <option value="y3">Second Year</option>
+              <option value="y4">Third Year</option>
+              <option value="y5">Fourth Year</option>
+              <option value="y6">Passout</option>
+              <option value="y7">Other</option>
+            </select>
+          </div>
+          <div id="b" class="d-inline-block">
+            <label for="branch">Branch*</label><br />
+            <input
+              type="text"
+              name="branch"
+              id="Branch"
+              class="rounded border border-secondary mb-3"
+              style="width: 335px; height: 50px"
+              placeholder="Branch"
+            /><br />
+          </div>
+          <div id="cr" class="d-inline-block">
+            <label for="course">Interested in Which Course*</label><br />
+            <input type="checkbox" name="course" id="course" /><span
+              id="text"
+              class="ms-2"
+              >Full Stack Web Development - Placement Oriented</span
+            ><br />
+            <input type="checkbox" name="course" id="course" /><span
+              id="text"
+              class="ms-2"
+              >Data Science with Python - Placement Oriented</span
+            ><br />
+            <input type="checkbox" name="course" id="course" /><span
+              id="text"
+              class="ms-2"
+              >Data Analytics with Python - Placement Oriented</span
+            ><br />
+            <input type="checkbox" name="course" id="course" /><span
+              id="text"
+              class="ms-2"
+              >Business Analyst</span
+            ><br />
+            <input type="checkbox" name="course" id="course" /><span
+              id="text"
+              class="ms-2"
+              >Java Programming</span
+            ><br />
+            <input type="checkbox" name="course" id="course" /><span
+              id="text"
+              class="ms-2"
+              >Python Programming</span
+            ><br />
+            <input type="checkbox" name="course" id="course" /><span
+              id="text"
+              class="ms-2"
+              >C/C++ Programming</span
+            ><br />
+            <input type="checkbox" name="course" id="course" /><span
+              id="text"
+              class="ms-2"
+              >Other</span
+            ><br />
+          </div>
+          <div id="rc" class="ms-1 d-inline-block" style="width: 295px">
+            <label for="source"
+              >Source of information (Only choose 'Recevied call from institute'
+              if you actually got a call from us)*</label
+            ><br />
+            <select
+              name="sourceofinfo"
+              class="rounded border border-secondary mb-3"
+              id="info"
+              style="width: 294px; height: 50px"
+            >
+              <option value="info1" selected disabled>
+                Source of Information
+              </option>
+              <option value="info2">NewsPaper/Print Media</option>
+              <option value="info3">Friends/Relatives</option>
+              <option value="info4">Social Media</option>
+              <option value="info5">Workshop/Seminar</option>
+              <option value="info6">
+                Recieved call from Institute (Only choose if you actually got a
+                call from us)
+              </option>
+              <option value="info7">Other</option>
+            </select>
+            <br />
+            <label for="nameex">Name of Executive*</label><br />
+            <select
+              name="nameex"
+              class="rounded border border-secondary"
+              style="width: 294px; height: 50px"
+              id="noe"
+              disabled
+            >
+              <option value="ne">Name of Executive</option>
+            </select>
+          </div>
+          <div id="button" class="text-center mt-5 mb-5">
+            <button
+              class="rounded-5 text-light bg-dark"
+              style="
+                width: 100px;
+                height: 40px;
+                transition: transform 0.3s ease-in-out;
+              "
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
