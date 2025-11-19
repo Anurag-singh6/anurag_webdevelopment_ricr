@@ -40,7 +40,7 @@
       <div class="form ms-5 me-5" style="background-color: rgb(214, 242, 254)">
         <form>
           <div id="pn" class="d-inline-block">
-            <label for="Person">Person Name*</label><br />
+            <label for="FullName">Person Name*</label><br />
             <input
               type="text"
               name="name"
@@ -48,10 +48,11 @@
               class="rounded me-4 border border-secondary"
               style="width: 320px; height: 50px"
               placeholder="Person Name"
+              autocomplete="on"
             /><br />
           </div>
           <div id="cn" class="d-inline-block">
-            <label for="Contact">Contact Number*</label><br />
+            <label for="MobileNumber">Contact Number*</label><br />
             <input
               type="number"
               name="mno"
@@ -70,10 +71,11 @@
               class="rounded border border-secondary me-4 mb-3"
               style="width: 400px; height: 50px"
               placeholder="Email"
+              autocomplete="on"
             /><br />
           </div>
           <div id="qf" class="d-inline-block">
-            <label for="Qualify">Qualification*</label><br />
+            <label for="Qualification">Qualification*</label><br />
             <input
               type="text"
               name="qualify"
@@ -83,7 +85,7 @@
               placeholder="Qualification"
             /><br />
           </div>
-          <label for="College">College/School Name*</label><br />
+          <label for="CollegeName">College/School Name*</label><br />
           <input
             type="text"
             name="college"
@@ -93,7 +95,7 @@
             placeholder="College/School Name"
           /><br />
           <div id="y" class="d-inline-block">
-            <label for="year">Year*</label><br />
+            <label for="Year">Year*</label><br />
             <select
               name="y"
               class="rounded border border-secondary me-4 mb-3"
@@ -110,7 +112,7 @@
             </select>
           </div>
           <div id="b" class="d-inline-block">
-            <label for="branch">Branch*</label><br />
+            <label for="Branch">Branch*</label><br />
             <input
               type="text"
               name="branch"
@@ -121,50 +123,50 @@
             /><br />
           </div>
           <div id="cr" class="d-inline-block">
-            <label for="course">Interested in Which Course*</label><br />
-            <input type="checkbox" name="course" id="course" /><span
+            <label for="course1">Interested in Which Course*</label><br />
+            <input type="checkbox" name="course" id="course1" /><span
               id="text"
               class="ms-2"
               >Full Stack Web Development - Placement Oriented</span
             ><br />
-            <input type="checkbox" name="course" id="course" /><span
+            <input type="checkbox" name="course" id="course2" /><span
               id="text"
               class="ms-2"
               >Data Science with Python - Placement Oriented</span
             ><br />
-            <input type="checkbox" name="course" id="course" /><span
+            <input type="checkbox" name="course" id="course3" /><span
               id="text"
               class="ms-2"
               >Data Analytics with Python - Placement Oriented</span
             ><br />
-            <input type="checkbox" name="course" id="course" /><span
+            <input type="checkbox" name="course" id="course4" /><span
               id="text"
               class="ms-2"
               >Business Analyst</span
             ><br />
-            <input type="checkbox" name="course" id="course" /><span
+            <input type="checkbox" name="course" id="course5" /><span
               id="text"
               class="ms-2"
               >Java Programming</span
             ><br />
-            <input type="checkbox" name="course" id="course" /><span
+            <input type="checkbox" name="course" id="course6" /><span
               id="text"
               class="ms-2"
               >Python Programming</span
             ><br />
-            <input type="checkbox" name="course" id="course" /><span
+            <input type="checkbox" name="course" id="course7" /><span
               id="text"
               class="ms-2"
               >C/C++ Programming</span
             ><br />
-            <input type="checkbox" name="course" id="course" /><span
+            <input type="checkbox" name="course" id="course8" /><span
               id="text"
               class="ms-2"
               >Other</span
             ><br />
           </div>
           <div id="rc" class="ms-1 d-inline-block" style="width: 295px">
-            <label for="source"
+            <label for="info"
               >Source of information (Only choose 'Recevied call from institute'
               if you actually got a call from us)*</label
             ><br />
@@ -188,7 +190,7 @@
               <option value="info7">Other</option>
             </select>
             <br />
-            <label for="nameex">Name of Executive*</label><br />
+            <label for="noe">Name of Executive*</label><br />
             <select
               name="nameex"
               class="rounded border border-secondary"
@@ -201,12 +203,14 @@
           </div>
           <div id="button" class="text-center mt-5 mb-5">
             <button
+              type="button"
               class="rounded-5 text-light bg-dark"
               style="
                 width: 100px;
                 height: 40px;
                 transition: transform 0.3s ease-in-out;
               "
+              onclick="submitform()"
             >
               Submit
             </button>
@@ -214,11 +218,11 @@
         </form>
       </div>
     </div>
-    <script src="script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script src="script.js"></script>
   </body>
 </html>
