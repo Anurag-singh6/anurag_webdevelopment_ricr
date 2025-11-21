@@ -12,6 +12,14 @@
     />
   </head>
   <body class="bg-light">
+    <style>
+      button {
+        transition: transform 0.3s ease-in-out;
+      }
+      button:hover {
+        transform: translateY(-3px);
+      }
+    </style>
     <header>
       <div
         class="container-fluid bg-primary px-3 py-1 d-flex justify-content-between"
@@ -254,7 +262,9 @@
           </div>
         </div>
         <div class="text-center">
-          <button class="btn bg-dark text-light mt-2">Submit</button>
+          <button type="button" class="btn bg-dark text-light mt-2 btn-lg">
+            Submit
+          </button>
         </div>
       </div>
     </main>
