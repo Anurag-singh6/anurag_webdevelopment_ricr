@@ -20,7 +20,7 @@
         transform: translateY(-3px);
       }
     </style>
-    <header>
+    <header class="position-sticky top-0 z-3">
       <div
         class="container-fluid bg-primary px-3 py-1 d-flex justify-content-between"
       >
@@ -33,7 +33,9 @@
           />
           <h1 class="text-light">Registration Form</h1>
         </div>
-        <button class="btn bg-dark text-light">Student Login</button>
+        <button type="button" class="btn bg-dark text-light">
+          Student Login
+        </button>
       </div>
     </header>
     <main>
@@ -55,6 +57,7 @@
               name="fullname"
               id="fullname"
               class="form-control"
+              autocomplete="on"
               required
             />
           </div>
@@ -67,6 +70,7 @@
               name="email"
               id="email"
               class="form-control"
+              autocomplete="on"
               required
             />
           </div>
@@ -110,10 +114,10 @@
               id="Qualification"
               class="form-control"
             >
-              <option value="">10th</option>
-              <option value="">12th</option>
-              <option value="">Graduate</option>
-              <option value="">Postgraduate</option>
+              <option value="q1">10th</option>
+              <option value="q2">12th</option>
+              <option value="q3">Graduate</option>
+              <option value="q4">Postgraduate</option>
             </select>
           </div>
           <div class="d-flex align-items-center">
@@ -147,10 +151,10 @@
               class="form-control"
               required
             >
-              <option value="">IIT-JEE</option>
-              <option value="">NEET</option>
-              <option value="">Banking Exams</option>
-              <option value="">UPSC</option>
+              <option value="p1">IIT-JEE</option>
+              <option value="p2">NEET</option>
+              <option value="p3">Banking Exams</option>
+              <option value="p4">UPSC</option>
             </select>
           </div>
           <div class="d-flex align-items-center">
@@ -158,9 +162,9 @@
               >Batch Timing Preference<subscript>*</subscript></label
             >
             <select name="batch" id="batch" class="form-control" required>
-              <option value="">Morning</option>
-              <option value="">Afternoon</option>
-              <option value="">Evening</option>
+              <option value="b1">Morning</option>
+              <option value="b2">Afternoon</option>
+              <option value="b3">Evening</option>
             </select>
           </div>
         </div>
@@ -178,6 +182,7 @@
               name="address"
               id="address"
               class="form-control"
+              autocomplete="on"
               required
             ></textarea>
           </div>
@@ -248,10 +253,10 @@
               >How did you hear about us?<subscript>*</subscript></label
             >
             <select name="addinfo" id="addinfo" class="form-control" required>
-              <option value="">Friends</option>
-              <option value="">Online Ad</option>
-              <option value="">Newspaper</option>
-              <option value="">Social Media</option>
+              <option value="a1">Friends</option>
+              <option value="a2">Online Ad</option>
+              <option value="a3">Newspaper</option>
+              <option value="a4">Social Media</option>
             </select>
           </div>
           <div class="d-flex align-items-center">
@@ -262,13 +267,17 @@
           </div>
         </div>
         <div class="text-center">
-          <button type="button" class="btn bg-dark text-light mt-2 btn-lg">
+          <button
+            type="button"
+            class="btn bg-dark text-light mt-2 btn-lg"
+            onclick="submit()"
+          >
             Submit
           </button>
         </div>
       </div>
     </main>
-
+    <script src="script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

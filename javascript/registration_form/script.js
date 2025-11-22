@@ -1,0 +1,37 @@
+function submit() {
+  alert("Registration Done");
+  const fullname = document.getElementById("fullname").value;
+  const em = document.getElementById("email").value;
+  const mob = document.getElementById("mobile").value;
+  const dob = document.getElementById("dob").value;
+  const qual = document.getElementById("Qualification");
+  const q = qual.value;
+  const p = document.getElementById("grade").value;
+  const pc = document.getElementById("Preferred");
+  const pfc = pc.value;
+  const bt = document.getElementById("batch");
+  const btp = bt.value;
+  const addr = document.getElementById("address").value;
+  const city = document.getElementById("city").value;
+  const pin = document.getElementById("pin").value;
+  const gna = document.getElementById("gname").value;
+  const gc = document.getElementById("gc").value;
+  const addinfo = document.getElementById("addinfo");
+  const add = addinfo.value;
+  const sp = document.getElementById("sp").value;
+  console.log("Name: " + fullname);
+  console.log("email: " + em);
+  console.log("mob: " + mob);
+  console.log("date of birth: " + dob);
+  console.log("qualification: " + q);
+  console.log("percentage: " + p);
+  console.log("pereferd by: " + pfc);
+  console.log("batch: " + btp);
+  console.log("address: " + addr);
+  console.log("city: " + city);
+  console.log("pincode: " + pin);
+  console.log("guardian name " + gna);
+  console.log("guardian conatct " + gc);
+  console.log("additional info: " + add);
+  console.log("special: " + sp);
+}

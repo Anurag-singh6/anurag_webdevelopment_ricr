@@ -18,4 +18,10 @@ function submitform() {
   console.log("year: " + sy);
   console.log("branch: " + bh);
   console.log("source of infomation: " + soi);
+  const allcheckboxes = document.querySelectorAll('input[type="checkbox"');
+  allcheckboxes.forEach((checkbox) => {
+    console.log(
+      `Checkbox value: ${checkbox.value}, Checked status: ${checkbox.checked}`
+    );
+  });
 }
