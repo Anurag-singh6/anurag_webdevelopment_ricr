@@ -9,24 +9,43 @@
   <body>
     <div class="container">
       <div class="head">
-        <input type="number" name="" id="" />
+        <input type="text" name="display" id="display" placeholder="0" />
       </div>
       <div id="op1">
-        <button>7</button><button>8</button><button>9</button><button>/</button>
+        <button type="button" id="seven" onclick="Input('7')">7</button
+        ><button type="button" id="eight" onclick="Input('8')">8</button
+        ><button type="button" id="nine" onclick="Input('9')">9</button
+        ><button type="button" id="divide" onclick="Input('/')">/</button>
       </div>
       <div id="op1">
-        <button>4</button><button>5</button><button>6</button><button>*</button>
+        <button type="button" id="four" onclick="Input('4')">4</button
+        ><button type="button" id="five" onclick="Input('5')">5</button
+        ><button type="button" id="six" onclick="Input('6')">6</button
+        ><button type="button" id="mul" onclick="Input('*')">*</button>
       </div>
       <div id="op1">
-        <button>1</button><button>2</button><button>3</button><button>-</button>
+        <button type="button" id="one" onclick="Input('1')">1</button
+        ><button type="button" id="tw" onclick="Input('2')">2</button
+        ><button type="button" id="t" onclick="Input('3')">3</button
+        ><button type="button" id="sub" onclick="Input('-')">-</button>
       </div>
       <div id="op1">
-        <button>.</button><button>0</button><button>+</button
-        ><button style="background-color: red; color: white">C</button>
+        <button type="button" id="decimal" onclick="Input('.')">.</button
+        ><button type="button" id="z" onclick="Input('0')">0</button
+        ><button type="button" id="add" onclick="Input('+')">+</button
+        ><button
+          type="button"
+          style="background-color: red; color: white"
+          id="clear"
+          onclick="Input('C')"
+        >
+          C
+        </button>
       </div>
       <div class="equal">
-        <button>=</button>
+        <button type="button" id="eq" onclick="Input('=')">=</button>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
