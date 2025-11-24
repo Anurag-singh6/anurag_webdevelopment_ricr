@@ -1,0 +1,33 @@
+.container {
+  width: 900px;
+  height: 180px;
+  border: 1px solid black;
+}
+.head {
+  width: 500px;
+  margin-top: 20px;
+  margin-left: 20px;
+  border: 1px solid black;
+  display: inline-block;
+  h2 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
+}
+.address {
+  width: 350px;
+  display: inline-block;
+  align-items: end;
+  label {
+    margin-top: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  input{
+    margin-top: 8px;
+    margin-bottom: 10px;
+    width: 200px;
+  }
+}
