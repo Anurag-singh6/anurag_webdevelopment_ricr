@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header class="bg-primary text-light">
+      <h2 class="text-center">Dice Game</h2>
+    </header>
+    <div
+      class="container border border-1 border-dark w-25 shadow-lg d-inline-block"
+      style="height: fit-content; margin-left: 300px"
+    >
+      <h2 class="text-center">Player 1</h2>
+      <div class="text-center mt-3">
+        <img
+          src="./image/6.png"
+          alt=""
+          id="dice1"
+          width="100px"
+          class="img-fluid"
+        />
+      </div>
+      <div class="text-center">
+        <button
+          id="roll1"
+          class="btn bg-primary text-light w-50 mb-2 mt-3"
+          onclick="p1play()"
+          disabled
+        >
+          Rool Dice
+        </button>
+      </div>
+    </div>
+    <div
+      class="container border border-1 border-dark w-25 shadow-lg mt-5 d-inline-block"
+      style="height: fit-content; margin-left: 100px"
+    >
+      <h2 class="text-center">Player 2</h2>
+      <div class="text-center mt-3">
+        <img
+          src="./image/6.png"
+          alt=""
+          id="dice2"
+          width="100px"
+          class="img-fluid"
+        />
+      </div>
+      <div class="text-center">
+        <button
+          id="roll2"
+          class="btn bg-primary text-light w-50 mb-2 mt-3"
+          onclick="p2play()"
+          disabled
+        >
+          Rool Dice
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-5">
+      <h2 class="text-center">Score Board</h2>
+      <div class="d-inline-block" style="margin-left: 30%">
+        <h4 class="text-center">Player 1</h4>
+        <br />
+        <label id="sc1" class="ms-4">0</label>
+      </div>
+      <div class="text-center ms-5 d-inline-block">
+        <h4 style="margin-left: 300px">Player 2</h4>
+        <br />
+        <label id="sc2" style="margin-left: 300px">0</label>
+      </div>
+    </div>
+    <div class="d-inline-block" style="margin-left: 40%; margin-top: 30px">
+      <button id="st" class="btn bg-success text-light" onclick="start()">
+        Start Game
+      </button>
+    </div>
+    <div class="ms-5 d-inline-block">
+      <button
+        id="rs"
+        class="btn bg-danger text-light"
+        onclick="restart()"
+        disabled
+      >
+        Restart Game
+      </button>
+    </div>
+    <script src="script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
