@@ -48,7 +48,7 @@ function p1play() {
   } else {
     score = score + df;
     document.getElementById("sc1").innerText = score;
-    if (score == 100) {
+    if (score >= 100) {
       alert("Player 1 wins.");
       document.getElementById("roll1").disabled = true;
       document.getElementById("roll2").disabled = true;
@@ -68,7 +68,7 @@ function p2play() {
   } else {
     score = score + df;
     document.getElementById("sc2").innerText = score;
-    if (score == 100) {
+    if (score >= 100) {
       alert("Player 2 wins.");
       document.getElementById("roll1").disabled = true;
       document.getElementById("roll2").disabled = true;
