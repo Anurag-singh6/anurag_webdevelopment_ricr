@@ -1,0 +1,33 @@
+
+#contain {
+  background-color: aquamarine;
+  position: static;
+  width: 200px;
+  height: fit-content;
+}
+#re {
+  position: relative;
+  top: 30px;
+  left: 50px;
+  right: 50px;
+  background-color: pink;
+}
+#parent {
+  background-color: brown;
+  #child {
+    position: relative;
+    background-color: chartreuse;
+  }
+}
+.fix{
+    position: fixed;
+    top: 20px;
+    left: 40px;
+    right: 50px;
+    background-color: blue;
+}
+.st{
+    position: sticky;
+    top: 0;
+    background-color: red;
+}

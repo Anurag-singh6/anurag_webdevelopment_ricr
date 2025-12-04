@@ -1,0 +1,89 @@
+.d1 {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+.d1:hover {
+  width: 300px;
+  background-color: tomato;
+}
+#d2 {
+  width: 100px;
+  height: 100px;
+  background-color: aqua;
+  border: 1px solid black;
+  transition: width 0.5s ease, background-color 0.5s ease;
+  transition-delay: 2s;
+}
+#d2:hover {
+  width: 300px;
+  background-color: aquamarine;
+}
+#d3 {
+  width: 100px;
+  height: 100px;
+  background-color: greenyellow;
+  border: 1px solid black;
+  transition: width 0.5s ease, background-color 0.5 ease;
+  transition-duration: 5s;
+}
+#d3:hover {
+  width: 300px;
+  background-color: green;
+}
+#d4 {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  background-color: yellow;
+  transition: width 0.5s linear, background-color 0.5s linear;
+}
+#d5 {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  background-color: yellow;
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+#d6 {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  background-color: yellow;
+  transition: width 0.5s ease-in, background-color 0.5s ease-in;
+}
+#d7 {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  background-color: yellow;
+  transition: width 0.5s ease-out, background-color 0.5s ease-out;
+}
+#d8 {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  background-color: yellow;
+  transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+#d4:hover {
+  width: 300px;
+  background-color: yellowgreen;
+}
+#d5:hover {
+  width: 300px;
+  background-color: yellowgreen;
+}
+#d6:hover {
+  width: 300px;
+  background-color: yellowgreen;
+}
+#d7:hover {
+  width: 300px;
+  background-color: yellowgreen;
+}
+#d8:hover {
+  width: 300px;
+  background-color: yellowgreen;
+}

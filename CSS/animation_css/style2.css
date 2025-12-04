@@ -1,0 +1,130 @@
+#box {
+  width: 100px;
+  height: 90px;
+  background-color: aqua;
+  transition: translate();
+}
+#box:hover {
+  translate: initial;
+}
+#box2 {
+  margin-left: 50px;
+  margin-top: 50px;
+  border: 1px solid black;
+  width: 100px;
+  height: 90px;
+  background-color: chartreuse;
+  transition: rotate();
+}
+#box2:hover {
+  transform: rotate(130deg);
+}
+#box3 {
+  border: 1px solid black;
+  width: 100px;
+  height: 90px;
+  background-color: blue;
+  transition: ease-in-out;
+}
+#box3:hover {
+  transform: scaleX(1.5);
+}
+#box4 {
+  border: 1px solid black;
+  width: 100px;
+  height: 90px;
+  margin-top: 50px;
+  background-color: chocolate;
+  transition: ease-out;
+}
+#box4:hover {
+  transform: scaleY(2.5);
+}
+.box5 {
+  border: 1px solid black;
+  width: 100px;
+  height: 90px;
+  margin-top: 50px;
+  background-color: red;
+  transition: ease-out;
+}
+.box5:hover {
+  transform: scale(1.3, 1.3);
+}
+#box6 {
+  border: 1px solid black;
+  width: 100px;
+  height: 90px;
+  margin-top: 20px;
+  background-color: gold;
+  transition: ease-in;
+}
+#box6:hover {
+  transform: skewX(40deg);
+}
+#box7 {
+  border: 1px solid black;
+  width: 100px;
+  height: 90px;
+  margin-top: 20px;
+  background-color: cornflowerblue;
+  transition: ease-in;
+}
+#box7:hover {
+  transform: skewY(30deg);
+}
+#box8 {
+  border: 1px solid black;
+  width: 100px;
+  height: 90px;
+  margin-left: 100px;
+  margin-top: 30px;
+  background-color: darkorange;
+  transition: ease-in-out;
+}
+#box8:hover {
+  transform: skew(20deg, 40deg);
+}
+#box9 {
+  border: 1px solid black;
+  width: 100px;
+  height: 90px;
+  margin-top: 20px;
+  background-color: deeppink;
+  transition: ease-in;
+}
+#box9:hover {
+  transform: matrix(2, 3, 1, 4, 5, 2);
+}
+#box10 {
+  border: 1px solid black;
+  width: 100px;
+  height: 90px;
+  margin-top: 20px;
+  background-color: blueviolet;
+  transition: ease-in-out;
+}
+#box10:hover {
+  transform: rotateX(60deg);
+}
+#box11 {
+  width: 100px;
+  height: 90px;
+  margin-top: 20px;
+  background-color: black;
+  transition: ease-in;
+}
+#box11:hover {
+  transform: rotateY(40deg);
+}
+#box12 {
+  border: 1px solid black;
+  width: 100px;
+  height: 90px;
+  margin-top: 20px;
+  background-color: darkgreen;
+  transition: ease-out;
+}
+#box12:hover {
+  transform: rotateZ(120deg);
+}
