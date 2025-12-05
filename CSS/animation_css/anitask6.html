@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      #b1 {
+        width: 100px;
+        height: 100px;
+        margin-left: 15px;
+        background-color: red;
+        animation: movebox;
+        animation-duration: 10s;
+        animation-timing-function: linear;
+      }
+      #b2 {
+        width: 100px;
+        height: 100px;
+        margin-left: 10px;
+        background-color: red;
+        animation: movebox;
+        animation-duration: 10s;
+        animation-timing-function: ease;
+      }
+      #b3 {
+        width: 100px;
+        height: 100px;
+        margin-left: 0px;
+        background-color: red;
+        animation: movebox;
+        animation-duration: 10s;
+        animation-timing-function: ease-in;
+      }
+      #b4 {
+        width: 100px;
+        height: 100px;
+        margin-left: 20px;
+        background-color: red;
+        animation: movebox;
+        animation-duration: 10s;
+        animation-timing-function: ease-out;
+      }
+      #b5 {
+        width: 100px;
+        height: 100px;
+        margin-left: 0px;
+        background-color: red;
+        animation: movebox;
+        animation-duration: 10s;
+        animation-timing-function: ease-in-out;
+      }
+      @keyframes movebox {
+        0% {
+          margin-left: 0%;
+        }
+        25% {
+          margin-left: 25%;
+        }
+        50% {
+          margin-left: 50%;
+        }
+        75% {
+          margin-left: 75%;
+        }
+        100% {
+          margin-left: 90%;
+        }
+      }
+    </style>
+    <div id="b1">linear</div>
+    <div id="b2">ease</div>
+    <div id="b3">ease-in</div>
+    <div id="b4">ease-out</div>
+    <div id="b5">ease-in-out</div>
+  </body>
+</html>

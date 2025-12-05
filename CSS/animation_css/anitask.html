@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      #box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        animation: changeColor;
+        animation-duration: 4s;
+        animation-iteration-count: 1;
+      }
+      #box2 {
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+        background-color: red;
+        animation: changecolor;
+        animation-duration: 4s;
+        animation-iteration-count: 1;
+      }
+      #box3 {
+        width: 200px;
+        height: 200px;
+        margin-top: 10px;
+        background-color: red;
+        animation: changeposc;
+        animation-duration: 10s;
+        animation-iteration-count: 2;
+      }
+      #box4 {
+        width: 100px;
+        height: 100px;
+        margin-top: 10px;
+        background-color: red;
+        animation: changecolorforward;
+        animation-duration: 10s;
+        animation-delay: 4s;
+        animation-iteration-count: 1;
+      }
+      #box5 {
+        width: 100px;
+        height: 100px;
+        margin-left: 200px;
+        margin-top: 500px;
+        background-color: red;
+        animation: changebox5;
+        animation-duration: 3s;
+        animation-delay: -4s;
+        animation-iteration-count: 2;
+      }
+      @keyframes changeColor {
+        0% {
+          background-color: red;
+        }
+        50% {
+          background-color: orange;
+        }
+        100% {
+          background-color: yellow;
+        }
+      }
+      @keyframes changecolor {
+        0% {
+          background-color: red;
+        }
+        25% {
+          background-color: yellow;
+        }
+        50% {
+          background-color: blue;
+        }
+        100% {
+          background-color: green;
+        }
+      }
+      @keyframes changeposc {
+        0% {
+          background-color: red;
+          margin-left: 0px;
+          margin-top: 0px;
+        }
+        25% {
+          background-color: yellow;
+          margin-left: 200px;
+          margin-top: 0px;
+        }
+        50% {
+          background-color: blue;
+          margin-left: 200px;
+          margin-top: 200px;
+        }
+        75% {
+          background-color: green;
+          margin-left: 0px;
+          margin-top: 200px;
+        }
+        100% {
+          background-color: red;
+          margin-left: 0px;
+          margin-top: 0px;
+        }
+      }
+      @keyframes changecolorforward {
+        0% {
+          background-color: red;
+          margin-left: 0px;
+        }
+        25% {
+          background-color: yellow;
+          margin-left: 50px;
+        }
+        50% {
+          background-color: blue;
+          margin-left: 100px;
+        }
+        75% {
+          background-color: blue;
+          margin-left: 150px;
+        }
+        100% {
+          background-color: green;
+          margin-left: 200px;
+        }
+      }
+      @keyframes changebox5 {
+        0% {
+          background-color: red;
+          margin-left: 200px;
+          margin-top: 500px;
+        }
+        25% {
+          background-color: yellow;
+          margin-left: 100px;
+          margin-top: 500px;
+        }
+        50% {
+          background-color: blue;
+          margin-left: 50px;
+          margin-top: 500px;
+        }
+        75% {
+          background-color: blue;
+          margin-left: 0px;
+          margin-top: 300px;
+        }
+        100% {
+          background-color: green;
+          margin-left: 0px;
+          margin-top: 0px;
+        }
+      }
+    </style>
+    <div id="box">Task 1</div>
+    <div id="box2">Task 2</div>
+    <div id="box3">Task 3</div>
+    <div id="box4">Task 4</div>
+    <div id="box5">Task 5</div>
+  </body>
+</html>
