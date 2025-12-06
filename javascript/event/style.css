@@ -21,6 +21,72 @@ button {
   border-radius: 50%;
   width: fit-content;
 }
+#bulb2 {
+  padding: 50px;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: fit-content;
+}
+#ball{
+  display: flex;
+  gap: 20px;
+}
+#ball1{
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  background-color: red;
+  border-radius: 50%;
+}
+#ball2{
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  background-color: yellow;
+  border-radius: 50%;
+}
+#ball3{
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  background-color: green;
+  border-radius: 50%;
+}
+#ball4{
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  background-color: blue;
+  border-radius: 50%;
+}
+#ball5{
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  background-color: pink;
+  border-radius: 50%;
+}
+#ball6{
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  background-color: orange;
+  border-radius: 50%;
+}
+#ball7{
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  background-color: chocolate;
+  border-radius: 50%;
+}
 
 .on {
   background-color: yellow;
