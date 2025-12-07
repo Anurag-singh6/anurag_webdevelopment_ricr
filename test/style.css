@@ -1,0 +1,136 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+.navsection {
+  height: 80px;
+  background-color: blue;
+  position: sticky;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+#logo {
+  margin-left: 10px;
+  margin-top: 10px;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+}
+.navbar {
+  margin-top: 10px;
+  a {
+    padding: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+  }
+  #links:hover {
+    text-decoration: underline;
+    color: whitesmoke;
+  }
+}
+#btn1 {
+  margin-right: 10px;
+  button {
+    width: 80px;
+    height: 50px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+  #l:hover {
+    text-decoration: underline;
+  }
+  #s:hover {
+    text-decoration: underline;
+  }
+}
+.hero {
+  margin-top: 50px;
+  #head {
+    margin-left: 10px;
+    margin-top: 10px;
+    width: fit-content;
+  }
+  #para {
+    margin-top: 20px;
+    margin-left: 10px;
+    width: 500px;
+    color: grey;
+  }
+  #btn2 {
+    margin-left: 10px;
+    margin-top: 10px;
+    width: fit-content;
+    #gets {
+      width: 150px;
+      height: 40px;
+      border: none;
+      border-radius: 20px;
+      background-color: black;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.5s ease;
+    }
+    #gets:hover {
+      text-decoration: underline;
+      background-color: orange;
+    }
+  }
+}
+.course {
+  margin-top: 20px;
+  margin-left: 10px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  #coursecard {
+    width: 250px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    #title {
+      margin-top: 10px;
+      text-decoration: underline;
+      text-align: center;
+    }
+    #imgcard {
+      margin-top: 5px;
+      img {
+        width: 200px;
+        height: 100px;
+        margin-left: 20px;
+        border-radius: 10px;
+      }
+    }
+    #p {
+      margin-left: 20px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    #price {
+      margin-left: 20px;
+      margin-top: 5px;
+    }
+    #reg {
+      margin-left: 20px;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      a {
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+      }
+      #e:hover{
+        color: blue;
+        text-decoration: underline;
+      }
+    }
+  }
+}
