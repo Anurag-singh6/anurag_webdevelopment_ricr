@@ -3,7 +3,7 @@
   margin: 0px;
 }
 .navsection {
-  height: 80px;
+  height: 65px;
   background-color: blue;
   position: sticky;
   top: 0px;
@@ -36,7 +36,7 @@
   margin-right: 10px;
   button {
     width: 80px;
-    height: 50px;
+    height: 40px;
     margin-top: 10px;
     background-color: black;
     color: white;
@@ -53,6 +53,7 @@
 }
 .hero {
   margin-top: 50px;
+  display: inline-block;
   #head {
     margin-left: 10px;
     margin-top: 10px;
@@ -80,9 +81,19 @@
       transition: background-color 0.5s ease;
     }
     #gets:hover {
-      text-decoration: underline;
       background-color: orange;
     }
+  }
+}
+#img {
+  width: fit-content;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  img{
+    width: 820px;
+    height: 400px;
+    border-radius: 20px;
   }
 }
 .course {
@@ -127,7 +138,7 @@
         font-size: 20px;
         color: black;
       }
-      #e:hover{
+      #e:hover {
         color: blue;
         text-decoration: underline;
       }
