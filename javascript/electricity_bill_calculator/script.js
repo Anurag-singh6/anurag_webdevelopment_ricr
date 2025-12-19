@@ -17,6 +17,11 @@ function calculate() {
     document.getElementById("euError").style = "color: yellow !important";
     document.getElementById("d1").remove();
     return;
+  } else if (amount < 0) {
+    document.getElementById("euError").innerText = "*EU Not < 0.";
+    document.getElementById("euError").style = "color: yellow !important";
+    document.getElementById("d1").remove();
+    return;
   }
   let charge1 = 0,
     charge2 = 0,
