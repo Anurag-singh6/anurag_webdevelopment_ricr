@@ -48,20 +48,24 @@
             style="top: -15px"
             >Personal Information</span
           >
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="fullname" class="form-label form-control w-25"
-              >Full name<subscript>*</subscript></label
+              >Full Name<subscript>*</subscript></label
             >
             <input
               type="text"
               name="fullname"
               id="fullname"
-              class="form-control"
+              class="form-control w-25"
               autocomplete="on"
               required
             />
+            <span
+              class="text-danger float-end fs-6 Error"
+              id="nameError"
+            ></span>
           </div>
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="email" class="form-label form-control w-25"
               >Email-Address<subscript>*</subscript></label
             >
@@ -69,12 +73,16 @@
               type="email"
               name="email"
               id="email"
-              class="form-control"
+              class="form-control w-25"
               autocomplete="on"
               required
             />
+            <span
+              class="text-danger float-end fs-6 Error"
+              id="emailError"
+            ></span>
           </div>
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="mobile" class="form-label form-control w-25"
               >Mobile Number<subscript>*</subscript></label
             >
@@ -82,11 +90,12 @@
               type="number"
               name="mobile"
               id="mobile"
-              class="form-control"
+              class="form-control w-25"
               required
             />
+            <span class="text-danger float-end fs-6 Error" id="mobError"></span>
           </div>
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="dob" class="form-label form-control w-25"
               >Date of Birth<subscript>*</subscript></label
             >
@@ -94,9 +103,10 @@
               type="date"
               name="dob"
               id="dob"
-              class="form-control"
+              class="form-control w-25"
               required
             />
+            <span class="text-danger float-end fs-6 Error" id="dobError"></span>
           </div>
         </div>
         <div class="border border-dark p-3 pt-4 position-relative mt-3">
@@ -105,22 +115,23 @@
             style="top: -15px"
             >Academic Details</span
           >
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="Qualification" class="form-label form-control w-25"
               >Last Completed Qualification<subscript>*</subscript></label
             >
             <select
               name="Qualification"
               id="Qualification"
-              class="form-control"
+              class="form-control w-25"
             >
               <option value="q1">10th</option>
               <option value="q2">12th</option>
               <option value="q3">Graduate</option>
               <option value="q4">Postgraduate</option>
             </select>
+            <span class="text-danger float-end fs-6 Error" id="qError"></span>
           </div>
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="grade" class="form-label form-control w-25"
               >Percentage/Grade in Last Qualification<subscript
                 >*</subscript
@@ -130,9 +141,13 @@
               type="number"
               name="grade"
               id="grade"
-              class="form-control"
+              class="form-control w-25"
               required
             />
+            <span
+              class="text-danger float-end fs-6 Error"
+              id="gradeError"
+            ></span>
           </div>
         </div>
         <div class="border border-dark p-3 pt-4 position-relative mt-3">
@@ -141,14 +156,14 @@
             style="top: -15px"
             >Course Information</span
           >
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="Preferred" class="form-label form-control w-25"
               >Preferred Course<subscript>*</subscript></label
             >
             <select
               name="Preferred"
               id="Preferred"
-              class="form-control"
+              class="form-control w-25"
               required
             >
               <option value="p1">IIT-JEE</option>
@@ -156,16 +171,24 @@
               <option value="p3">Banking Exams</option>
               <option value="p4">UPSC</option>
             </select>
+            <span
+              class="text-danger float-end fs-6 Error"
+              id="courseError"
+            ></span>
           </div>
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="batch" class="form-label form-control w-25"
               >Batch Timing Preference<subscript>*</subscript></label
             >
-            <select name="batch" id="batch" class="form-control" required>
+            <select name="batch" id="batch" class="form-control w-25" required>
               <option value="b1">Morning</option>
               <option value="b2">Afternoon</option>
               <option value="b3">Evening</option>
             </select>
+            <span
+              class="text-danger float-end fs-6 Error"
+              id="batchError"
+            ></span>
           </div>
         </div>
         <div class="border border-dark p-3 pt-4 position-relative mt-3">
@@ -174,19 +197,23 @@
             style="top: -15px"
             >Address</span
           >
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="address" class="form-label form-control w-25"
               >Residential Address<subscript>*</subscript></label
             >
             <textarea
               name="address"
               id="address"
-              class="form-control"
+              class="form-control w-50"
               autocomplete="on"
               required
             ></textarea>
+            <span
+              class="text-danger float-end fs-6 Error"
+              id="addressError"
+            ></span>
           </div>
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="city" class="form-label form-control w-25"
               >City<subscript>*</subscript></label
             >
@@ -194,11 +221,15 @@
               type="text"
               name="city"
               id="city"
-              class="form-control"
+              class="form-control w-25"
               required
             />
+            <span
+              class="text-danger float-end fs-6 Error"
+              id="cityError"
+            ></span>
           </div>
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="pin" class="form-label form-control w-25"
               >Pincode<subscript>*</subscript></label
             >
@@ -206,9 +237,10 @@
               type="number"
               name="pin"
               id="pin"
-              class="form-control"
+              class="form-control w-25"
               required
             />
+            <span class="text-danger float-end fs-6 Error" id="pinError"></span>
           </div>
         </div>
         <div class="border border-dark p-3 pt-4 position-relative mt-3">
@@ -217,7 +249,7 @@
             style="top: -15px"
             >Guardian Details</span
           >
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="gname" class="form-label form-control w-25"
               >Guardian's Full name<subscript>*</subscript></label
             >
@@ -225,11 +257,12 @@
               type="text"
               name="gname"
               id="gname"
-              class="form-control"
+              class="form-control w-25"
               required
             />
+            <span class="text-danger float-end fs-6 Error" id="gnError"></span>
           </div>
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="gc" class="form-label form-control w-25"
               >Guardian's Contact Number<subscript>*</subscript></label
             >
@@ -237,9 +270,10 @@
               type="number"
               name="gc"
               id="gc"
-              class="form-control"
+              class="form-control w-25"
               required
             />
+            <span class="text-danger float-end fs-6 Error" id="gcError"></span>
           </div>
         </div>
         <div class="border border-dark p-3 pt-4 position-relative mt-3">
@@ -248,22 +282,28 @@
             style="top: -15px"
             >Additional Information</span
           >
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="addinfo" class="form-label form-control w-25"
               >How did you hear about us?<subscript>*</subscript></label
             >
-            <select name="addinfo" id="addinfo" class="form-control" required>
+            <select
+              name="addinfo"
+              id="addinfo"
+              class="form-control w-25"
+              required
+            >
               <option value="a1">Friends</option>
               <option value="a2">Online Ad</option>
               <option value="a3">Newspaper</option>
               <option value="a4">Social Media</option>
             </select>
+            <span class="text-danger float-end fs-6 Error" id="addError"></span>
           </div>
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center gap-1">
             <label for="sp" class="form-label form-control w-25"
               >Special Requirements (optional)</label
             >
-            <input type="text" name="sp" id="sp" class="form-control" />
+            <input type="text" name="sp" id="sp" class="form-control w-25" />
           </div>
         </div>
         <div class="text-center">
