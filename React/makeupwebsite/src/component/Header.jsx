@@ -1,26 +1,32 @@
 import React from "react";
+import logo from "./logo.png";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <>
-      <div className="bg-neutral-100 text-dark p-2">
-        <img
-          src="data:image/jpeg;base64,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"
-          alt="logo"
-          className="rounded-2xl w-25 h-22"
-        />
-        <div className="flex justify-center gap-3">
-          <Link to={"/"} className="text-black">
+      <div className="bg-white ml-5 text-dark p-2 h-20 sticky top-0 z-1 flex items-center gap-10">
+        <img src={logo} alt="" width={130} height={90} className="bg-cover" />
+        <div className="p-5 flex justify-center gap-10">
+          <Link to={"/"} className="text-black font-bold hover:text-pink-600">
             Home
           </Link>
-          <Link to={"/About"} className="text-black">
+          <Link
+            to={"/About"}
+            className="text-black font-bold hover:text-pink-600"
+          >
             About
           </Link>
-          <Link to={"/Product"} className="text-black">
+          <Link
+            to={"/Product"}
+            className="text-black font-bold hover:text-pink-600"
+          >
             Product
           </Link>
-          <Link to={"/Contact"} className="text-black">
+          <Link
+            to={"/Contact"}
+            className="text-black font-bold hover:text-pink-600"
+          >
             Contact
           </Link>
         </div>
