@@ -12,5 +12,5 @@ function Med(a, b) {
 
 console.log("abcd");
 
-//export { add, sub };
+//export {add, sub};
 export default Med;
