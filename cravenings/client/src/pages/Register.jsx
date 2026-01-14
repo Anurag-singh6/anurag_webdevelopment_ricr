@@ -30,6 +30,7 @@ const Register = () => {
 
   const validate = () => {
     let Error = {};
+
     if (formData.fullname.length < 3) {
       Error.fullname = "Name should be More than 3 characters";
     } else {

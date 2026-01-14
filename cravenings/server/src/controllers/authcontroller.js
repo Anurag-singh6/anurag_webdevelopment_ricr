@@ -54,18 +54,18 @@ export const UserLogin = async (req, res, next) => {
 
     //check user registed or not
     const existinguser = await User.findOne({ email });
-    if (existinguser) {
+    if (!existinguser) {
       const error = new Error("Email not registered");
-      error.statuscode = 402;
+      error.statuscode = 401;
       return next(error);
     }
 
     //password verfiy
 
-    const isverfiy = password === existinguser.password;
+    const isverfiy = await bcrypt.compare(password, existinguser.password);
     if (!isverfiy) {
       const error = new Error("User Not Authorized");
-      error.statuscode = 402;
+      error.statuscode = 401;
       return next(error);
     }
 
