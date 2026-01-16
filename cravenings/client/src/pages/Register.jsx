@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import api from "../config/Api";
+import { Link } from "react-router-dom";
+import login from "./Login";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -183,6 +185,15 @@ const Register = () => {
                   Clear Form
                 </button>
               </div>
+              <p className="mt-10 text-center text-sm/6 text-red-400 font-bold">
+                Already a member?
+                <Link
+                  to={"/login"}
+                  className="font-semibold text-indigo-600 hover:text-indigo-300"
+                >
+                  Login
+                </Link>
+              </p>
             </form>
           </div>
 

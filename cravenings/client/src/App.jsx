@@ -7,12 +7,13 @@ import Contact from "./pages/Contact";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
-
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
+        <Toaster />
         <Header />
         <Routes>
           <Route path="/" element={<Home />}></Route>

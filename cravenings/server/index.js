@@ -5,6 +5,7 @@ import connectdb from "./src/config/db.js";
 import cors from "cors";
 import morgan from "morgan";
 import AuthRouter from "./src/routers/authrouter.js";
+import PublicRouter from "./src/routers/publicrouter.js";
 
 const app = express();
 app.use(cors({ origin: "http://localhost:5173" }));
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 app.use("/auth", AuthRouter);
+app.use("/public", PublicRouter);
 
 app.get("/", (req, res) => {
   console.log("Server is running");
