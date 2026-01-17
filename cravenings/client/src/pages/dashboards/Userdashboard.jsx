@@ -6,17 +6,25 @@ import Orders from "../../components/userDashboard/Orders";
 import Transaction from "../../components/userDashboard/Transaction";
 import Helpdesk from "../../components/userDashboard/Helpdesk";
 
-
 const Userdashboard = () => {
   const [active, setActive] = useState("overview");
-
+  const [isOpen, setOpen] = useState(false);
   return (
     <>
       <div className="flex w-full h-[90vh]">
-        <div className="bg-(--color-background) w-3/15">
-          <Sildebar active={active} setActive={setActive} />
+        <div
+          className={`bg-(--color-background) duration-300 ${
+            isOpen ? "w-2/30" : "w-12/60"
+          }`}
+        >
+          <Sildebar
+            active={active}
+            setActive={setActive}
+            isOpen={isOpen}
+            setOpen={setOpen}
+          />
         </div>
-        <div className="border border-red-500 w-11/13">
+        <div className={`${isOpen ? "w-58/60" : "w-48/60"} duration-300`}>
           {active === "overview" && <Useroverview />}
           {active === "profile" && <Profile />}
           {active === "orders" && <Orders />}

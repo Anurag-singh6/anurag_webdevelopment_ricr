@@ -5,18 +5,50 @@ import { MdOutlineLiveHelp } from "react-icons/md";
 import { TbTransactionRupee } from "react-icons/tb";
 import { FaBorderAll } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { Squash as Hamburger } from "hamburger-react";
 
-const Sildebar = ({ active, setActive }) => {
-  const [isOpen, setOpen] = useState(false);
+const Sildebar = ({ active, setActive, isOpen, setOpen }) => {
+  const menuitems = [
+    { key: "overview", title: "Overview", icon: <GrOverview /> },
+    { key: "profile", title: "Profile", icon: <CgProfile /> },
+    { key: "orders", title: "Orders", icon: <FaBorderAll /> },
+    { key: "transaction", title: "Transaction", icon: <TbTransactionRupee /> },
+    { key: "helpdesk", title: "Help Desk", icon: <MdOutlineLiveHelp /> },
+  ];
   return (
     <>
       <div className="text-white ml-2.5">
-          <button className="bg-(--color-primary) p-3 rounded-xl hover:bg-gray-400">
+        <div className="font-bold mt-2.5 p-2 flex gap-1 items-center">
+          <button
+            className="bg-(--color-primary) p-3 rounded-xl hover:bg-gray-500"
+            onClick={() => setOpen(!isOpen)}
+          >
             <RxHamburgerMenu />
           </button>
+          {""}
+          {!isOpen && (
+            <span className="text-nowrap overflow-hidden">User Dashboard</span>
+          )}
+        </div>
+        <hr />
 
-        <div className="grid gap-3 p-3">
+        <div className="py-6 space-y-5 w-full">
+          {menuitems.map((item, idx) => (
+            <button
+              className={`flex gap-3 items-center hover:bg-gray-400 p-2 rounded-xl ${
+                active === item.key
+                  ? "bg-(--color-primary)"
+                  : "hover:bg-gray-500"
+              }`}
+              onClick={() => setActive(item.key)}
+              key={idx}
+            >
+              {" "}
+              {item.icon}
+              {!isOpen && item.title}
+            </button>
+          ))}
+        </div>
+        {/* <div className="grid gap-3 p-3">
           <button
             className={`flex gap-3 items-center hover:bg-gray-400 p-2 rounded-xl ${
               active === "overview"
@@ -75,7 +107,7 @@ const Sildebar = ({ active, setActive }) => {
             <MdOutlineLiveHelp />
             Help Desk
           </button>
-        </div>
+        </div> */}
       </div>
     </>
   );
