@@ -4,7 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import api from "../config/Api";
 
+
 const login = () => {
+
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -50,6 +53,7 @@ const login = () => {
       const res = await api.post("/auth/login", formData);
       toast.success(res.data.message);
       handleClearForm();
+      navigate("/userdashboard");
     } catch (error) {
       console.log(error);
       toast.error(error.message);
