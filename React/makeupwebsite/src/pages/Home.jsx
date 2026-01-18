@@ -1,27 +1,44 @@
 import React from "react";
+import HomeVideo from "../assets/video/HomeVideo.mp4";
+import photo1 from "../assets/homeimages/photo1.png";
+import photo2 from "../assets/homeimages/photo2.png";
+import photo3 from "../assets/homeimages/photo3.png";
+import photo4 from "../assets/homeimages/photo4.png";
+import photo from "../assets/photo.png";
 
 const Home = () => {
   return (
     <>
-      <div className="border">
+      <div className="relative h-100">
+        <video
+          src={HomeVideo}
+          autoPlay
+          loop
+          muted
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 flex flex-col justify-center items-center bg-black/40">
+          <h1 className="text-5xl font-bold text-pink-400">
+            Welcome To Tripsy Makeup
+          </h1>
+          <p className="text-xl text-white mt-3 text-center">
+            ✨ Discover premium beauty products designed to enhance your natural
+            glow ✨
+          </p>
+        </div>
+      </div>
+
+      <div className="flex gap-3 m-20 p-3 border-10 shadow-2xl border-pink-100 mt-10">
         <div>
-          <h3>Tripsy</h3>
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere,
-              amet accusantium, culpa voluptatum voluptates autem alias mollitia
-              voluptas et dolorum quia nulla ut consequuntur sunt. Omnis
-              temporibus neque accusantium dolorem. Quasi fugiat aliquam dolore
-              quibusdam eos delectus ducimus tempore eveniet quo et, unde
-              nesciunt necessitatibus nam doloremque aut sequi voluptate
-              sapiente officia consectetur quas error esse repellendus
-              dignissimos illo? Aperiam. Eius atque, tempora voluptatibus
-              cupiditate magnam temporibus velit maiores quaerat enim esse
-              suscipit voluptates reiciendis similique officiis eos aut dolorum
-              tenetur fugit inventore? Ut a eligendi nihil fugit, blanditiis
-              excepturi.
-            </p>
-          </div>
+          <img src={photo1} alt="photo" />
+          <img src={photo2} alt="photo" />
+        </div>
+        <div>
+          <img src={photo} alt="photo" />
+        </div>
+        <div>
+          <img src={photo3} alt="" />
+          <img src={photo4} alt="" />
         </div>
       </div>
     </>
