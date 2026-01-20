@@ -3,9 +3,10 @@ import logo from "../assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import api from "../config/Api";
-
+import { useAuth } from "../context/Authcontext";
 
 const login = () => {
+  const { setUser, setLogin } = useAuth();
 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -52,11 +53,14 @@ const login = () => {
     try {
       const res = await api.post("/auth/login", formData);
       toast.success(res.data.message);
+      setUser(res.data.data);
+      setLogin(true);
+      sessionStorage.setItem("CravingUser", JSON.stringify(res.data.data));
       handleClearForm();
       navigate("/userdashboard");
     } catch (error) {
       console.log(error);
-      toast.error(error.message);
+      toast.error(error?.response?.data?.message || "Unknown Error");
     } finally {
       setIsLoading(false);
     }

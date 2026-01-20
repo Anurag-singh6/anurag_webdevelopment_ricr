@@ -1,0 +1,24 @@
+import jwt from "jsonwebtoken";
+
+export const gentoken = (user, res) => {
+  try {
+    const payload = {
+      id: user._id,
+      role: user.role || "admin",
+    };
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: "1d",
+    }); //s, m
+
+    console.log(token);
+
+    res.cookie("parle-G", token, {
+      maxAge: 1000 * 60 * 60 * 24,
+      httpOnly: true,
+      secure: false,
+      sameSite: "lax", //lax special mode of cookie
+    });
+  } catch (error) {
+    throw error;
+  }
+};

@@ -1,5 +1,6 @@
 import User from "../models/usermodel.js";
 import bcrypt from "bcrypt";
+import { gentoken } from "../utils/authtoken.js";
 
 export const UserRegister = async (req, res, next) => {
   try {
@@ -68,6 +69,8 @@ export const UserLogin = async (req, res, next) => {
       error.statuscode = 401;
       return next(error);
     }
+    //token genration
+    gentoken(existinguser, res);
 
     //send message to frontend
     res.status(200).json({ message: "Login Successfully", data: existinguser });
