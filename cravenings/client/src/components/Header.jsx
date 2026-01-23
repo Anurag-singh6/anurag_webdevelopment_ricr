@@ -5,7 +5,7 @@ import { useAuth } from "../context/Authcontext";
 import { VscAccount } from "react-icons/vsc";
 
 const Header = () => {
-  const {user, isLogin} = useAuth();
+  const { user, isLogin } = useAuth();
   const nevigate = useNavigate();
 
   return (
@@ -36,8 +36,12 @@ const Header = () => {
         </div>
         <div className="flex gap-4">
           {isLogin ? (
-            
-            <span className="text-yellow-300 font-bold">{user.fullname}</span>
+            <div
+              className="text-yellow-300 font-bold hover:text-(--color-secondary-hover) cursor-pointer"
+              onClick={() => nevigate("/userdashboard")}
+            >
+              {user.fullname}
+            </div>
           ) : (
             <>
               <button

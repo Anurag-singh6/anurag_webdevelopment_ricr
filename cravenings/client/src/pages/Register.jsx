@@ -131,6 +131,11 @@ const Register = () => {
                     disabled={isLoading}
                     className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
                   />
+                  {validationError.email && (
+                    <span className="text-xs text-red-500">
+                      {validationError.email}
+                    </span>
+                  )}
                   <input
                     type="tel"
                     name="mobileno"
@@ -143,6 +148,11 @@ const Register = () => {
                     disabled={isLoading}
                     className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
                   />
+                  {validationError.mobileno && (
+                    <span className="text-xs text-red-500">
+                      {validationError.mobileno}
+                    </span>
+                  )}
                   <input
                     type="password"
                     name="password"
