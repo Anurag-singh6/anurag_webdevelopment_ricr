@@ -12,7 +12,7 @@ export const gentoken = (user, res) => {
 
     console.log(token);
 
-    res.cookie("parle-G", token, {
+    res.cookie("parleG", token, {
       maxAge: 1000 * 60 * 60 * 24,
       httpOnly: true,
       secure: false,

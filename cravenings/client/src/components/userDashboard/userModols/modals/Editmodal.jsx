@@ -1,20 +1,17 @@
 import React from "react";
 import { useState } from "react";
-import toast from "react-hot-toast";
+import { useAuth } from "../../../../context/Authcontext";
+import api from "../../../../config/Api";
 
-const Editmodal = () => {
+const Editmodal = ({ onclose }) => {
+  const { user, setUser } = useAuth();
   const [formData, setFormData] = useState({
-    fullname: "",
-    email: "",
-    mobileno: "",
+    fullname: user.fullname,
+    email: user.email,
+    mobileno: user.mobileno,
   });
   const [isLoading, setIsLoading] = useState(false);
   const [validateError, setValidationError] = useState({});
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
 
   const handleClearForm = () => {
     setFormData({
@@ -52,6 +49,8 @@ const Editmodal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("form submitted");
+    console.log(formData);
     setIsLoading(true);
 
     if (!validate()) {
@@ -61,14 +60,15 @@ const Editmodal = () => {
     }
 
     try {
-      const res = await api.post("/auth/update", formData);
-      toast.success(res.data.message);
-      handleClearForm();
+      const res = await api.put("/user/update", formData);
+      sessionStorage.setItem("CravingUser", JSON.stringify(res.data.data));
+      setUser(res.data.data);
+      setIsLoading(true);
     } catch (error) {
       console.log(error);
-      toast.error(error.message);
     } finally {
       setIsLoading(false);
+      onclose();
     }
   };
   return (
@@ -78,7 +78,7 @@ const Editmodal = () => {
           <div>
             <div className="text-center mb-8">
               <h1 className="text-4xl font-bold text-gray-900 mb-2">
-                Update Details
+                Edit Profile
               </h1>
             </div>
             <form
@@ -94,7 +94,9 @@ const Editmodal = () => {
                     id=""
                     placeholder="Full Name"
                     value={formData.fullname}
-                    onChange={handleChange}
+                    onChange={(e) =>
+                      setFormData({ ...formData, fullname: e.target.value })
+                    }
                     required
                     disabled={isLoading}
                     className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
@@ -111,9 +113,11 @@ const Editmodal = () => {
                   id=""
                   placeholder="Email"
                   value={formData.email}
-                  onChange={handleChange}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   required
-                  disabled={isLoading}
+                  disabled
                   className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
                 />
                 {validateError.email && (
@@ -127,7 +131,9 @@ const Editmodal = () => {
                   id=""
                   placeholder="Mobile Number"
                   value={formData.mobileno}
-                  onChange={handleChange}
+                  onChange={(e) =>
+                    setFormData({ ...formData, mobileno: e.target.value })
+                  }
                   required
                   disabled={isLoading}
                   className="w-full h-fit px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
@@ -144,19 +150,19 @@ const Editmodal = () => {
                   disabled={isLoading}
                   className="flex-1 bg-linear-to-r from-indigo-600 to-indigo-700 text-white font-bold py-4 px-6 rounded-lg hover:from-indigo-700 hover:to-indigo-800 transition duration-300 transform hover:scale-105 shadow-lg disabled:cursor-not-allowed disabled:bg-gray-200"
                 >
-                  {isLoading ? "Submitting" : "Submit"}
+                  Save Changes
                 </button>
                 <button
                   type="reset"
                   disabled={isLoading}
-                  className="flex-1 bg-gray-300 text-gray-800 font-bold py-4 px-6 rounded-lg hover:bg-gray-400 transition duration-300 transform hover:scale-105 disabled:cursor-not-allowed disabled:bg-gray-200"
+                  className="flex-1 bg-red-500 text-gray-800 font-bold py-4 px-6 rounded-lg hover:bg-red-600 transition duration-300 transform hover:scale-105 disabled:cursor-not-allowed disabled:bg-gray-200"
+                  onClick={() => onclose()}
                 >
                   Clear Form
                 </button>
               </div>
             </form>
           </div>
-          <button onClick={() => onclose()}></button>
         </div>
       </div>
     </>

@@ -2,7 +2,7 @@ import React from "react";
 import Transparent from "../assets/transparent.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/Authcontext";
-import { VscAccount } from "react-icons/vsc";
+
 
 const Header = () => {
   const { user, isLogin } = useAuth();
