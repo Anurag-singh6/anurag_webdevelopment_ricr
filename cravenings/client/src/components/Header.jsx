@@ -3,10 +3,36 @@ import Transparent from "../assets/transparent.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/Authcontext";
 
-
 const Header = () => {
-  const { user, isLogin } = useAuth();
+  const { user, isLogin, role, setRole } = useAuth();
   const nevigate = useNavigate();
+
+  const handleNavigate = () => {
+    switch (role) {
+      case "manager": {
+        setRole("manager");
+        nevigate("/resturant-dashboard");
+        break;
+      }
+      case "partner": {
+        setRole("partner");
+        nevigate("/rider-dashboard");
+        break;
+      }
+      case "customer": {
+        setRole("customer");
+        nevigate("/userdashboard");
+        break;
+      }
+      case "admin": {
+        setRole("admin");
+        nevigate("/admin-dashboard");
+        break;
+      }
+      default:
+        break;
+    }
+  };
 
   return (
     <>
@@ -38,7 +64,7 @@ const Header = () => {
           {isLogin ? (
             <div
               className="text-yellow-300 font-bold hover:text-(--color-secondary-hover) cursor-pointer"
-              onClick={() => nevigate("/userdashboard")}
+              onClick={handleNavigate}
             >
               {user.fullname}
             </div>

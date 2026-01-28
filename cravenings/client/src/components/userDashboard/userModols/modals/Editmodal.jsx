@@ -4,7 +4,7 @@ import { useAuth } from "../../../../context/Authcontext";
 import api from "../../../../config/Api";
 
 const Editmodal = ({ onclose }) => {
-  const { user, setUser } = useAuth();
+  const { user, setUser, setLogin } = useAuth();
   const [formData, setFormData] = useState({
     fullname: user.fullname,
     email: user.email,
@@ -63,7 +63,7 @@ const Editmodal = ({ onclose }) => {
       const res = await api.put("/user/update", formData);
       sessionStorage.setItem("CravingUser", JSON.stringify(res.data.data));
       setUser(res.data.data);
-      setIsLoading(true);
+      setLogin(true);
     } catch (error) {
       console.log(error);
     } finally {
@@ -80,6 +80,7 @@ const Editmodal = ({ onclose }) => {
               <h1 className="text-4xl font-bold text-gray-900 mb-2">
                 Edit Profile
               </h1>
+              <button onClick={()=>onclose()} className="text-red-600 hover:text-red-900 text-2xl">⊗</button>
             </div>
             <form
               onSubmit={handleSubmit}

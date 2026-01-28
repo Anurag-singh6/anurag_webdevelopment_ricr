@@ -9,6 +9,9 @@ import Login from "./pages/Login";
 import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 import UserDashboard from "./pages/dashboards/UserDashboard.jsx";
+import Riderdashboard from "./pages/dashboards/Riderdashboard.jsx";
+import Resturantdashboard from "./pages/dashboards/Resturantdashboard.jsx";
+import Admindashboard from "./pages/dashboards/Admindashboard.jsx";
 
 const App = () => {
   return (
@@ -23,6 +26,12 @@ const App = () => {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/userdashboard" element={<UserDashboard />}></Route>
+          <Route path="/rider-dashboard" element={<Riderdashboard />}></Route>
+          <Route
+            path="/resturant-dashboard"
+            element={<Resturantdashboard />}
+          ></Route>
+          <Route path="/admin-dashboard" element={<Admindashboard />}></Route>
         </Routes>
       </BrowserRouter>
     </>

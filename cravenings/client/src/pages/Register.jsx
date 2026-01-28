@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import api from "../config/Api";
 import { Link } from "react-router-dom";
-import login from "./Login";
+
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +11,7 @@ const Register = () => {
     mobileno: "",
     password: "",
     confirmpassword: "",
+    role: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [validationError, setValidationError] = useState({});
@@ -27,6 +28,7 @@ const Register = () => {
       mobileno: "",
       password: "",
       confirmpassword: "",
+      role: "",
     });
   };
 
@@ -49,6 +51,9 @@ const Register = () => {
 
     if (!/^[6-9]\d{9}$/.test(formData.mobileno)) {
       Error.mobileno = "Only Indian Mobile Number allowed";
+    }
+    if (!formData.role) {
+      Error.role = "Role is required";
     }
 
     setValidationError(Error);
@@ -102,6 +107,46 @@ const Register = () => {
               {/* Personal Information */}
               <div className="mb-10">
                 <div className="space-y-4">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <div className="flex gap-2 mb-2 items-center">
+                        <label>I am</label>
+                        <input
+                          type="radio"
+                          name="role"
+                          id="manager"
+                          checked={formData.role === "manager"}
+                          value={"manager"}
+                          onChange={handleChange}
+                        />
+                        <label htmlFor="manager">Resturant Manager</label>
+
+                        <input
+                          type="radio"
+                          name="role"
+                          id="partner"
+                          checked={formData.role === "partner"}
+                          value={"partner"}
+                          onChange={handleChange}
+                        />
+                        <label htmlFor="partner">Dilvery Partner</label>
+                        <input
+                          type="radio"
+                          name="role"
+                          id="customer"
+                          checked={formData.role === "customer"}
+                          value={"customer"}
+                          onChange={handleChange}
+                        />
+                        <label htmlFor="customer">Customer</label>
+                      </div>
+                    </div>
+                    {validationError.role && (
+                      <span className="text-xs text-red-500">
+                        {validationError.role}
+                      </span>
+                    )}
+                  </div>
                   <div>
                     <input
                       type="text"

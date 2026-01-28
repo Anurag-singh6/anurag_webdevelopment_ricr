@@ -1,14 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sildebar from "../../components/userDashboard/Sildebar";
 import Useroverview from "../../components/userDashboard/Useroverview";
 import Profile from "../../components/userDashboard/Profile";
 import Orders from "../../components/userDashboard/Orders";
 import Transaction from "../../components/userDashboard/Transaction";
 import Helpdesk from "../../components/userDashboard/Helpdesk";
+import { useAuth } from "../../context/Authcontext";
+import { useNavigate } from "react-router-dom";
 
 const Userdashboard = () => {
+  const { role, isLogin } = useAuth();
+  const navigate = useNavigate();
   const [active, setActive] = useState("overview");
   const [isOpen, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isLogin) {
+      navigate("/login");
+    }
+  });
+
+  if (role !== "customer") {
+    return (
+      <>
+        <div className="p-3">
+          <div className="border rounded shadow p-5 w-4xl mx-auto text-center bg-gray-100">
+            <div className="text-5xl text-red-600">🚫</div>
+            <div className="text-xl">
+              You are not login as Customer. Please Login again.
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <div className="flex w-full h-[90vh]">

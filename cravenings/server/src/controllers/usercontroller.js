@@ -1,4 +1,5 @@
 import User from "../models/usermodel.js";
+import cloudinary from "../config/cloudinary.js";
 
 export const UserUpdate = async (req, res, next) => {
   try {
@@ -28,7 +29,7 @@ export const UserUpdate = async (req, res, next) => {
         email,
         mobileno,
       },
-      { new: true },
+      { new: true }
     );
     console.log("Update User: ", updateuser);
 
@@ -36,6 +37,51 @@ export const UserUpdate = async (req, res, next) => {
       .status(200)
       .json({ message: "user update successfull", data: updateuser });
     console.log("Updating the user");
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const UserChangePhoto = async (req, res, next) => {
+  try {
+    //console.log("body: ", req.body);
+
+    
+    const currentuser = req.user;
+    const dp = req.file;
+    console.log("file: ", req.file);
+
+    if (!dp) {
+      const error = new Error("Profile Picture Required");
+      error.statuscode(400);
+      return next(error);
+    }
+
+    if (currentuser.photo.publicID) {
+      //delete the old photo from cloudinary
+      await cloudinary.uploader.destroy(currentuser.photo.publicID);
+    }
+
+    //upload the photo from cloudinary
+    const b64 = Buffer.from(dp.buffer).toString("base64");
+    console.log(b64.slice(0, 100));
+    const dataURI = `data:${dp.mimetype};base64,${b64}`;
+    console.log("data", dataURI.slice(0, 100));
+
+    const result = await cloudinary.uploader.upload(dataURI, {
+      folder: "Cravings/User",
+      width: 500,
+      height: 500,
+      crop: "fill",
+    });
+
+    console.log("Image uploaded successfully ", result);
+    currentuser.photo.uri = result.secure_url;
+    currentuser.photo.publicID = result.public_id;
+
+    await currentuser.save();
+
+    res.status(200).json({ message: "Photo Updated", data: currentuser});
   } catch (error) {
     next(error);
   }

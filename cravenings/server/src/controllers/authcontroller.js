@@ -4,9 +4,9 @@ import { gentoken } from "../utils/authtoken.js";
 
 export const UserRegister = async (req, res, next) => {
   try {
-    const { fullname, email, mobileno, password } = req.body;
+    const { fullname, email, mobileno, password, role } = req.body;
 
-    if (!fullname || !email || !mobileno || !password) {
+    if (!fullname || !email || !mobileno || !password || !role) {
       const error = new Error("All Fields Required");
       error.statuscode = 400;
       return next(error);
@@ -23,6 +23,12 @@ export const UserRegister = async (req, res, next) => {
     const salt = await bcrypt.genSalt(10);
     const hashpassword = await bcrypt.hash(password, salt);
 
+    //save photo
+    const photoURL = `https://placehold.co/600x400?text=${fullname.charAt(0).toUpperCase()}`;
+    const photo = {
+      url: photoURL,
+    };
+
     //save data to packets
 
     const NewUser = await User.create({
@@ -30,6 +36,8 @@ export const UserRegister = async (req, res, next) => {
       email,
       mobileno,
       password: hashpassword,
+      role,
+      photo,
     });
 
     //send response to fontend
@@ -82,6 +90,7 @@ export const UserLogin = async (req, res, next) => {
 
 export const UserLogout = async (req, res, next) => {
   try {
+    res.clearCookie("parleG");
     res.status(200).json({ message: "Logout Successfully" });
   } catch (error) {
     console.log(error);

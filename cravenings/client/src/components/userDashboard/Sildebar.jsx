@@ -5,8 +5,13 @@ import { MdOutlineLiveHelp } from "react-icons/md";
 import { TbTransactionRupee } from "react-icons/tb";
 import { FaBorderAll } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { IoIosLogOut } from "react-icons/io";
+import api from "../../config/Api";
+import toast from "react-hot-toast";
+import { useAuth } from "../../context/Authcontext";
 
 const Sildebar = ({ active, setActive, isOpen, setOpen }) => {
+  const { setUser, setLogin } = useAuth();
   const menuitems = [
     { key: "overview", title: "Overview", icon: <GrOverview /> },
     { key: "profile", title: "Profile", icon: <CgProfile /> },
@@ -14,6 +19,18 @@ const Sildebar = ({ active, setActive, isOpen, setOpen }) => {
     { key: "transaction", title: "Transaction", icon: <TbTransactionRupee /> },
     { key: "helpdesk", title: "Help Desk", icon: <MdOutlineLiveHelp /> },
   ];
+
+  const handleLogout = async () => {
+    try {
+      const res = await api.get("/auth/logout");
+      toast.success(res.data.message);
+      setUser("");
+      setLogin(false);
+      sessionStorage.removeItem("CravingUser");
+    } catch (error) {
+      toast.error(error?.response?.data?.message || "Unknown Error");
+    }
+  };
   return (
     <>
       <div className="text-white ml-2.5">
@@ -108,6 +125,16 @@ const Sildebar = ({ active, setActive, isOpen, setOpen }) => {
             Help Desk
           </button>
         </div> */}
+      </div>
+      <div>
+        <button
+          className="flex gap-3 items-center text-lg ps-2 rounded-xl h-10 w-full text-nowrap overflow-hidden duration-300 hover:bg-red-500 hover:text-white text-red-600"
+          onClick={handleLogout}
+        >
+          {" "}
+          <IoIosLogOut />
+          {!isOpen && "Logout"}
+        </button>
       </div>
     </>
   );
