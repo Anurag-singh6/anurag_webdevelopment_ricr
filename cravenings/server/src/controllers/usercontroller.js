@@ -3,11 +3,35 @@ import cloudinary from "../config/cloudinary.js";
 
 export const UserUpdate = async (req, res, next) => {
   try {
-    //logic
-    const { fullname, email, mobileno } = req.body;
+    //logic{{
+    const {
+      fullname,
+      email,
+      mobileno,
+      gender,
+      dob,
+      address,
+      city,
+      pin,
+      geoLocation,
+      documents,
+      paymentDetails,
+    } = req.body;
     const currentuser = req.user;
 
-    if (!fullname || !email || !mobileno) {
+    if (
+      !fullname ||
+      !email ||
+      !mobileno ||
+      !gender ||
+      !dob ||
+      !address ||
+      !city ||
+      !pin ||
+      !geoLocation ||
+      !documents ||
+      !paymentDetails
+    ) {
       const error = new Error("All fields required");
       error.statuscode = 400;
       return next(error);
@@ -28,6 +52,13 @@ export const UserUpdate = async (req, res, next) => {
         fullname,
         email,
         mobileno,
+        gender,
+        dob,
+        address,
+        city,
+        geoLocation,
+        documents,
+        paymentDetails,
       },
       { new: true }
     );
@@ -46,7 +77,6 @@ export const UserChangePhoto = async (req, res, next) => {
   try {
     //console.log("body: ", req.body);
 
-    
     const currentuser = req.user;
     const dp = req.file;
     console.log("file: ", req.file);
@@ -76,12 +106,12 @@ export const UserChangePhoto = async (req, res, next) => {
     });
 
     console.log("Image uploaded successfully ", result);
-    currentuser.photo.uri = result.secure_url;
+    currentuser.photo.url = result.secure_url;
     currentuser.photo.publicID = result.public_id;
 
     await currentuser.save();
 
-    res.status(200).json({ message: "Photo Updated", data: currentuser});
+    res.status(200).json({ message: "Photo Updated", data: currentuser });
   } catch (error) {
     next(error);
   }
