@@ -1,5 +1,6 @@
 import User from "../models/usermodel.js";
 import cloudinary from "../config/cloudinary.js";
+import bcrypt from "bcrypt";
 
 export const UserUpdate = async (req, res, next) => {
   try {
@@ -112,6 +113,37 @@ export const UserChangePhoto = async (req, res, next) => {
     await currentuser.save();
 
     res.status(200).json({ message: "Photo Updated", data: currentuser });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const UserResetPassword = async (req, res, next) => {
+  try {
+    const { oldpassword, newpassword } = req.body;
+    const currentuser = req.user;
+
+    if (!oldpassword || !newpassword) {
+      const error = new Error("All feilds required");
+      error.statuscode = 400;
+      return next(error);
+    }
+
+    const isverified = await bcrypt.compare(oldpassword, currentuser.password);
+    if (!isverified) {
+      const error = new Error("Old Password didn't match");
+      error.statuscode = 401;
+      return next(error);
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashpassword = await bcrypt.hash(newpassword, salt);
+
+    currentuser.password = hashpassword;
+
+    await currentuser.save();
+
+    res.status(200).json({ message: "Password Reset Successfull" });
   } catch (error) {
     next(error);
   }

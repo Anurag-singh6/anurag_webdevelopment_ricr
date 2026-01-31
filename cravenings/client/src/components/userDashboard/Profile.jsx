@@ -5,10 +5,13 @@ import { ImCamera } from "react-icons/im";
 import UserImage from "../../assets/customer.jpg";
 import api from "../../config/Api";
 import toast from "react-hot-toast";
+import Resetpassmodal from "./userModols/modals/Resetpassmodal";
 
 const Profile = () => {
   const { user, setUser } = useAuth();
+
   const [isEditModol, setEditModol] = useState(false);
+  const [isResetModal, setResetModel] = useState(false);
   const [preview, setpreview] = useState("");
 
   const changephoto = async (photo) => {
@@ -42,7 +45,7 @@ const Profile = () => {
             <div className="relative">
               <div className="border rounded-full w-36 h-36 overflow-hidden">
                 <img
-                  src={preview || user.photo.url || UserImage}
+                  src={preview || user.photo.URL || UserImage}
                   alt="profile-image"
                   className="w-full h-full object-cover"
                 />
@@ -83,13 +86,17 @@ const Profile = () => {
             >
               Edit
             </button>
-            <button className="px-4 py-2 rounded bg-(--color-secondary) text-white cursor-pointer transition-colors duration-300 ease-in-out hover:bg-(--color-primary)">
-              Reset
+            <button
+              className="px-4 py-2 rounded bg-(--color-secondary) text-white cursor-pointer transition-colors duration-300 ease-in-out hover:bg-(--color-primary)"
+              onClick={() => setResetModel(true)}
+            >
+              Reset Password
             </button>
           </div>
         </div>
       </div>
       {isEditModol && <Editmodal onclose={() => setEditModol(false)} />}
+      {isResetModal && <Resetpassmodal onclose={() => setResetModel(false)} />}
     </>
   );
 };
