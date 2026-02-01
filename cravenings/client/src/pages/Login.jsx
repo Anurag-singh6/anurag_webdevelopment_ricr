@@ -4,11 +4,15 @@ import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import api from "../config/Api";
 import { useAuth } from "../context/Authcontext";
+import Forgetpass from "../components/publicModals/Forgetpass";
 
 const login = () => {
   const { setUser, setLogin, setRole } = useAuth();
 
   const navigate = useNavigate();
+
+  const [isForgetModal, setForgetModal] = useState(false);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -57,24 +61,23 @@ const login = () => {
       setLogin(true);
       sessionStorage.setItem("CravingUser", JSON.stringify(res.data.data));
       handleClearForm();
-      switch(res.data.data.role)
-      {
+      switch (res.data.data.role) {
         case "manager": {
           setRole("manager");
           navigate("/resturant-dashboard");
           break;
         }
-         case "partner": {
+        case "partner": {
           setRole("partner");
           navigate("/rider-dashboard");
           break;
         }
-         case "customer": {
+        case "customer": {
           setRole("customer");
           navigate("/userdashboard");
           break;
         }
-         case "admin": {
+        case "admin": {
           setRole("admin");
           navigate("/admin-dashboard");
           break;
@@ -92,7 +95,7 @@ const login = () => {
 
   return (
     <>
-      <div className="flex min-h-fit flex-col justify-center px-6 py-12 lg:px-8 bg-(--color-secondary) h-screen">
+      <div className="flex flex-col justify-center px-6 py-12 lg:px-8 bg-(--color-secondary) h-screen">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img src={logo} alt="Your Company" className="mx-auto h-10 w-auto" />
           <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">
@@ -135,12 +138,15 @@ const login = () => {
                   Password
                 </label>
                 <div className="text-sm">
-                  <a
-                    href="#"
+                  <button
                     className="font-semibold text-indigo-400 hover:text-indigo-300"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setForgetModal(true);
+                    }}
                   >
                     Forgot password?
-                  </a>
+                  </button>
                 </div>
               </div>
               <div className="mt-2">
@@ -178,6 +184,7 @@ const login = () => {
           </p>
         </div>
       </div>
+      {isForgetModal && <Forgetpass onclose={() => setForgetModal(false)} />}
     </>
   );
 };
