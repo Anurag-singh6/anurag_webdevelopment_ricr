@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import api from "../../config/Api"
+import api from "../../config/Api";
 
 const Forgetpass = ({ onclose }) => {
   const [formData, setFormData] = useState({
@@ -23,10 +23,13 @@ const Forgetpass = ({ onclose }) => {
       let res;
       if (isOtpSent) {
         if (isOtpVerified) {
-          console.log("otp already verfify now update password");
+          res = await api.post("/auth/forgetPassword", formData);
+          toast.success(res.data.message);
           onclose();
         } else {
-          console.log("otp already sent now verfiy it");
+          res = await api.post("/auth/verifyOtp", formData);
+          toast.success(res.data.message);
+          setIsOtpSent(true);
           setOtpVerified(true);
         }
       } else {

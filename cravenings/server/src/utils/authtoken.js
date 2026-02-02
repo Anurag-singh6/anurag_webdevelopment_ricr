@@ -22,3 +22,26 @@ export const gentoken = (user, res) => {
     throw error;
   }
 };
+
+export const getotptoken = (user, res) => {
+  try {
+    const payload = {
+      id: user._id,
+      role: user.role,
+    };
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {
+      expiresIn: "10m",
+    }); //s, m
+
+    console.log(token);
+
+    res.cookie("otpToken", token, {
+      maxAge: 1000 * 60 * 10,
+      httpOnly: true,
+      secure: false,
+      sameSite: "lax", //lax special mode of cookie
+    });
+  } catch (error) {
+    throw error;
+  }
+};

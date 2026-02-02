@@ -1,6 +1,6 @@
 import User from "../models/usermodel.js";
 import bcrypt from "bcrypt";
-import { gentoken } from "../utils/authtoken.js";
+import { gentoken, getotptoken } from "../utils/authtoken.js";
 import OTP from "../models/otpmodel.js";
 import { sendotpemail } from "../utils/emailservice.js";
 
@@ -139,6 +139,77 @@ export const UserGenOTP = async (req, res, next) => {
     await sendotpemail(email, otp);
 
     res.status(200).json({ message: "OTP send on registered email" });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const UserVerfiyOtp = async (req, res, next) => {
+  try {
+    const { email, otp } = req.body;
+
+    if (!email || !otp) {
+      const error = new Error("All Fields Required");
+      error.statuscode = 400;
+      return next(error);
+    }
+
+    //check db otp
+    const existinguserOtp = await OTP.findOne({ email });
+    if (!existinguserOtp) {
+      const error = new Error("OTP Match error. Please Retry");
+      error.statuscode = 401;
+      return next(error);
+    }
+
+    //otp verfiy with db
+
+    const isverfiy = await bcrypt.compare(otp, existinguserOtp.otp);
+    if (!isverfiy) {
+      const error = new Error("OTP Match error. Please Retry");
+      error.statuscode = 401;
+      return next(error);
+    }
+    await existinguserOtp.deleteOne();
+
+    const existinguser = await User.findOne({ email });
+    if (!existinguser) {
+      const error = new Error("Email not registered");
+      error.statuscode = 401;
+      return next(error);
+    }
+
+    //token genration
+    getotptoken(existinguser, res);
+
+    //send message to frontend
+    res.status(200).json({ message: "OTP verfied successfull" });
+  } catch {
+    next(error);
+  }
+};
+
+export const UserForgetPassword = async (req, res, next) => {
+  try {
+    const { newpassword } = req.body;
+    const currentuser = req.user;
+
+    if (!newpassword) {
+      const error = new Error("All fields Required");
+      error.statuscode = 400;
+      return next(error);
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashpass = await bcrypt.hash(newpassword, salt);
+
+    currentuser.password = hashpass;
+    await currentuser.save();
+
+    res
+      .status(200)
+      .clearCookie("otpToken")
+      .json({ message: "Password Changed. Please Login again" });
   } catch (error) {
     next(error);
   }

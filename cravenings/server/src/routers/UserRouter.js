@@ -11,4 +11,6 @@ router.put("/update", protect, UserUpdate);
 router.patch("/changePhoto",protect, upload.single("image"), UserChangePhoto)
 router.patch("/resetpassword", protect, UserResetPassword)
 
+
+
 export default router;

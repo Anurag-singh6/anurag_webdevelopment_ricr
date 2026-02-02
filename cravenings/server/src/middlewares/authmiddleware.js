@@ -27,3 +27,30 @@ export const protect = async (req, res, next) => {
     next(error);
   }
 };
+
+export const otproctect = async (req, res, next) => {
+  try {
+    const token = req.cookies.otpToken;
+    console.log("Token recevied in cookies:", token);
+
+    const decode = jwt.verify(token, process.env.JWT_SECRET);
+    console.log(decode);
+    if (!decode) {
+      const error = new Error("Unauthorized! Please try again");
+      error.statuscode = 401;
+      return next(error);
+    }
+
+    const verfieduser = await User.findById(decode.id);
+    if (!verfieduser) {
+      const error = new Error("Unauthorized! Please try again");
+      error.statuscode = 401;
+      return next(error);
+    }
+
+    req.user = verfieduser;
+    next();
+  } catch (error) {
+    next(error);
+  }
+};

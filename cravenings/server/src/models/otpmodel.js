@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const otpsend = mongoose.Schema({
+const otpsechma = mongoose.Schema({
   email: {
     type: String,
     required: true,
@@ -10,11 +10,11 @@ const otpsend = mongoose.Schema({
     required: true,
   },
   createdAt: {
-    type: String,
-    required: true,
-    expires: 300,
+    type: Date,
+    default: Date.now,
+    expires: 300,//5min
   },
 });
 
-const OTP = mongoose.model("OTP", otpsend);
+const OTP = mongoose.model("OTP", otpsechma);
 export default OTP;
