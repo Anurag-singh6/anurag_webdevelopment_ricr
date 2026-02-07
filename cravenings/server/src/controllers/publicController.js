@@ -25,3 +25,18 @@ export const UserContact = async (req, res, next) => {
     next(error);
   }
 };
+
+export const GetAllRestaurants = async (req, res, next) => {
+  try {
+    const restaurants = await User.find({ role: "manager" }).select(
+      "-password"
+    ); //- password not shown
+
+    res.status(200).json({
+      message: "Restaurants fetched successfully",
+      data: restaurants,
+    });
+  } catch {
+    next(error);
+  }
+};

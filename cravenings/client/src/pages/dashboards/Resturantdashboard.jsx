@@ -7,6 +7,7 @@ import Managerprofile from "../../components/resturantDashboard/Managerprofile";
 import Menuitems from "../../components/resturantDashboard/Menuitems";
 import Managertransaction from "../../components/resturantDashboard/Managertransaction";
 import Managerhelpdesk from "../../components/resturantDashboard/Managerhelpdesk";
+import Resturantorders from "../../components/resturantDashboard/Resturantorders";
 
 const Resturantdashboard = () => {
   const { role, isLogin } = useAuth();
@@ -52,8 +53,9 @@ const Resturantdashboard = () => {
         </div>
         <div className={`${isOpen ? "w-58/60" : "w-48/60"} duration-300`}>
           {active === "resturantoverview" && <Resturantoverview />}
-          {active === "manageroverview" && <Managerprofile />}
+          {active === "managerprofile" && <Managerprofile />}
           {active === "menuitems" && <Menuitems />}
+          {active === "orders" && <Resturantorders />}
           {active === "managertransaction" && <Managertransaction />}
           {active === "managerhelpdesk" && <Managerhelpdesk />}
         </div>

@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 import AuthRouter from "./src/routers/authrouter.js";
 import PublicRouter from "./src/routers/publicrouter.js";
 import UserRouter from "./src/routers/UserRouter.js";
+import RestaurantRouter from "./src/routers/restaurantRouter.js";
 
 const app = express();
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
@@ -17,6 +18,7 @@ app.use(morgan("dev"));
 app.use("/auth", AuthRouter);
 app.use("/public", PublicRouter);
 app.use("/user", UserRouter);
+app.use("/restaurant", RestaurantRouter);
 
 app.get("/", (req, res) => {
   console.log("Server is running");

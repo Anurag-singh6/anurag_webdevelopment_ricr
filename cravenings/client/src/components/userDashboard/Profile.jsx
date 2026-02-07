@@ -45,7 +45,7 @@ const Profile = () => {
             <div className="relative">
               <div className="border rounded-full w-36 h-36 overflow-hidden">
                 <img
-                  src={preview || user.photo.URL || UserImage}
+                  src={preview || user?.photo?.url || UserImage}
                   alt="profile-image"
                   className="w-full h-full object-cover"
                 />
