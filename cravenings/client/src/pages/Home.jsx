@@ -1,33 +1,64 @@
 import React from "react";
 import pizza from "../assets/pizza.png";
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <>
-      <section className="h-96 bg-lime-100 rounded shadow">
-        <div className="ml-3.5 h-80 flex">
-          <div className="h-80 w-3xl p-2.5 flex-1 flex flex-col justify-center">
-            <h1 className="font-bold text-4xl max-w-72">
-              Fastest <span className="text-red-500">Food</span> Delvering. 😋
-            </h1>
-            <p className="mt-2.5 max-w-md">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-              sed assumenda vel delectus provident quidem aut obcaecati illum
-              eligendi voluptatum pariatur aperiam enim qui rerum modi,
-              explicabo sint temporibus fuga!
-            </p>
-            <button className="w-35 mt-2 h-10 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 transition">
-              Order Now ❤
-            </button>
-          </div>
-          <div className="flex justify-center items-center flex-1">
-            <img
-              src={pizza}
-              alt=""
-              width={430}
-              className="w-full max-w-80"
-            />
+      {/* Hero section */}
+      <section className="bg-linear-to-r from-[#00ADB5] to-[#EEEEEE] py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            {/* left content */}
+            <div className="space-y-6">
+              <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+                Order Your{" "}
+                <span className="text-red-500">Favorite Food 😋</span>
+              </h1>
+              <p className="text-lg md:text-xl text-gray-50">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Deleniti, voluptate.
+              </p>
+              <div className="flex flex-wrap gap-4 pt-4">
+                <button
+                  onClick={() => navigate("/order-now")}
+                  className="px-8 py-3 bg-white text-gray-600 font-semibold rounded-lg hover:bg-gray-50 transition duration-300 transform hover:scale-105 cursor-pointer"
+                >
+                  Order Now
+                </button>
+                <button
+                  onClick={() => navigate("/contact")}
+                  className="px-8 py-3 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-800 transition duration-300 border-2 border-white cursor-pointer"
+                >
+                  Contact Us
+                </button>
+              </div>
+
+              {/* stats */}
+              <div className="grid grid-cols-3 gap-4 pt-8">
+                <div>
+                  <p className="text-3xl font-bold">500+</p>
+                  <p className="">Restaurants</p>
+                </div>
+                <div>
+                  <p className="text-3xl font-bold">50K+</p>
+                  <p className="">Happy Customers</p>
+                </div>
+                <div>
+                  <p className="text-3xl font-bold">24/7</p>
+                  <p className="">Support</p>
+                </div>
+              </div>
+            </div>
+
+            {/* right visual */}
+            <div className="flex justify-center items-center">
+              <div className="text-8xl">
+                <img src={pizza} alt="pizza" className="w-80 animate-pulse" />
+              </div>
+            </div>
           </div>
         </div>
       </section>

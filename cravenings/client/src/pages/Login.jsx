@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import api from "../config/Api";
 import { useAuth } from "../context/Authcontext";
 import Forgetpass from "../components/publicModals/Forgetpass";
+import Loading from "../components/Loading";
 
 const login = () => {
   const { setUser, setLogin, setRole } = useAuth();
@@ -92,6 +93,14 @@ const login = () => {
       setIsLoading(false);
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className="w-100 h-100 felx items-center justify-center">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <>

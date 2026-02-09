@@ -40,3 +40,31 @@ export const GetAllRestaurants = async (req, res, next) => {
     next(error);
   }
 };
+
+export const GetRestaurantMenuData = async (req, res, next) => {
+  try {
+    const { id, page } = req.params;
+    console.log(page);
+
+    if (!id) {
+      const error = new Error("All feids required");
+      error.statuscode = 400;
+      return next(error);
+    }
+
+    const restaurantMenudata = await menubar
+      .find({
+        resturantID: id,
+      })
+      .sort({ updatedAt: -1 })
+      .skip(1)
+      .limit(2)
+      .populate("resturantID");
+
+    res
+      .status(200)
+      .json({ message: "Menu fetched Successfully", data: restaurantMenudata });
+  } catch (error) {
+    next(error);
+  }
+};

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import api from "../config/Api";
+import Loading from "../components/Loading"
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -73,6 +74,14 @@ const Contact = () => {
       setIsLoading(false);
     }
   };
+
+   if (isLoading) {
+    return (
+      <div className="w-100 h-100 felx items-center justify-center">
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <>

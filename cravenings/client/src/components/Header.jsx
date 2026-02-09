@@ -71,13 +71,13 @@ const Header = () => {
           ) : (
             <>
               <button
-                className="bg-(--color-secondary) text-white py-2 px-4 font-bold hover: bg-(--color-secondary-hover) hover:text-(--color-accent) rounded"
+                className="bg-(--color-secondary) cursor-pointer text-white py-2 px-4 font-bold hover: bg-(--color-secondary-hover) hover:text-(--color-accent) rounded"
                 onClick={() => nevigate("/login")}
               >
                 Login
               </button>
               <button
-                className="bg-(--color-secondary) text-white py-2 px-4 font-bold hover: bg-(--color-secondary-hover) hover:text-(--color-accent) rounded"
+                className="bg-(--color-secondary) cursor-pointer text-white py-2 px-4 font-bold hover: bg-(--color-secondary-hover) hover:text-(--color-accent) rounded"
                 onClick={() => nevigate("/register")}
               >
                 Register
