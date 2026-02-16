@@ -36,7 +36,7 @@ const App = () => {
           ></Route>
           <Route path="/admin-dashboard" element={<Admindashboard />}></Route>
           <Route path="/order-now" element={<OrderNow />} />
-          <Route path="/restaurant/:id" element={<RestaurantDisplayMenu />} />
+          <Route path="/restaurantMenu" element={<RestaurantDisplayMenu />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </BrowserRouter>

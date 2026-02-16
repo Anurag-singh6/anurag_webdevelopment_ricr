@@ -1,4 +1,6 @@
 import Contact from "../models/contactmodel.js";
+import Menu from "../models/menuSchema.js";
+import User from "../models/usermodel.js";
 
 export const UserContact = async (req, res, next) => {
   try {
@@ -29,7 +31,7 @@ export const UserContact = async (req, res, next) => {
 export const GetAllRestaurants = async (req, res, next) => {
   try {
     const restaurants = await User.find({ role: "manager" }).select(
-      "-password"
+      "-password",
     ); //- password not shown
 
     res.status(200).json({
@@ -43,8 +45,7 @@ export const GetAllRestaurants = async (req, res, next) => {
 
 export const GetRestaurantMenuData = async (req, res, next) => {
   try {
-    const { id, page } = req.params;
-    console.log(page);
+    const {id} = req.params;
 
     if (!id) {
       const error = new Error("All feids required");
@@ -52,13 +53,11 @@ export const GetRestaurantMenuData = async (req, res, next) => {
       return next(error);
     }
 
-    const restaurantMenudata = await menubar
+    const restaurantMenudata = await Menu
       .find({
         resturantID: id,
       })
       .sort({ updatedAt: -1 })
-      .skip(1)
-      .limit(2)
       .populate("resturantID");
 
     res

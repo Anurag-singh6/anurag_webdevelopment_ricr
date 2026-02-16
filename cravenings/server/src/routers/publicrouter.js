@@ -8,5 +8,5 @@ import {
 const router = express.Router();
 router.post("/contact", UserContact);
 router.get("/allRestaurants", GetAllRestaurants);
-router.get("/restaurant-menu/:id/:page", GetRestaurantMenuData);
+router.get("/restaurant-menu/:id", GetRestaurantMenuData);
 export default router;
