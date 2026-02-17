@@ -15,6 +15,7 @@ import Admindashboard from "./pages/dashboards/Admindashboard.jsx";
 import OrderNow from "./pages/OrderNow.jsx";
 import RestaurantDisplayMenu from "./pages/RestaurantDisplayMenu.jsx";
 import Notfound from "./pages/Notfound.jsx";
+import Checkoutpage from "./pages/Checkoutpage.jsx";
 
 const App = () => {
   return (
@@ -37,6 +38,8 @@ const App = () => {
           <Route path="/admin-dashboard" element={<Admindashboard />}></Route>
           <Route path="/order-now" element={<OrderNow />} />
           <Route path="/restaurantMenu" element={<RestaurantDisplayMenu />} />
+          <Route path="/checkout-page" element={<Checkoutpage />} />
+
           <Route path="*" element={<Notfound />} />
         </Routes>
       </BrowserRouter>

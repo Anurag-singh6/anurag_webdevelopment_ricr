@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/Authcontext";
 import api from "../config/Api";
 import toast from "react-hot-toast";
 
 const RestaurantDisplayMenu = () => {
+  const { isLogin, role } = useAuth(); //if customer not login
+  const navigate = useNavigate();
+
   const data = useLocation().state;
   console.log("resturant menu page", data);
 
   const [loading, setloading] = useState(false);
   const [menuitems, setmenuitems] = useState();
+  const [cart, setcart] = useState(JSON.parse(localStorage.getItem("cart"))); //store cart in local st
+  const [cartflag, setcartflag] = useState([]);
 
   const fetchMenuItems = async () => {
     setloading(true);
@@ -23,9 +29,41 @@ const RestaurantDisplayMenu = () => {
     }
   };
 
+  const handleAddtoCart = (NewItem) => {
+    if (cart) {
+      if (cart.resturantId === NewItem.resturantId._id) {
+        setcart((prev) => ({
+          ...prev,
+          cartItem: [...prev.cartItem, { ...NewItem, quantity: 1 }],
+          cartValue: Number(prev.cartValue) + Number(NewItem.price),
+        }));
+        setcartflag((prev) => [...prev, NewItem._id]);
+      } else {
+        toast.error("Clear the cart first");
+      }
+    } else {
+      setcart({
+        resturantId: NewItem.resturantId._id,
+        cartItem: [{ ...NewItem, quantity: 1 }],
+        cartValue: Number(NewItem.price),
+      });
+      setcartflag((prev) => [...prev, NewItem._id]);
+    }
+  };
+
+  const handleCheckout = () => {
+    isLogin && role === "customer"
+      ? (localStorage.setItem("cart", JSON.stringify(cart)),
+        navigate("/checkout-page"))
+      : (toast.error("Please Login as Customer"), navigate("/login"));
+  };
+
+  console.log(cart);
+
   useEffect(() => {
     fetchMenuItems();
   }, [data]);
+
   return (
     <>
       <div className="w-7xl p-3 rounded shadow mx-auto mt-2">
@@ -108,8 +146,18 @@ const RestaurantDisplayMenu = () => {
                       <div className="text-(--color-primary) text-2xl font-bold">
                         ₹{EachItem.price}
                       </div>
-                      <button className="bg-(--color-primary) text-white px-6 py-2 rounded hover:bg-(--color-primary-hover) transition">
-                        Add to Cart
+                      <button
+                        className="bg-(--color-primary) text-white px-6 py-2 rounded hover:bg-(--color-primary-hover) transition"
+                        onClick={() => handleAddtoCart(EachItem)}
+                        disabled={cartflag.includes(EachItem._id)}
+                      >
+                        {console.log(
+                          "cartflag",
+                          cartflag.includes(EachItem._id)
+                        )}
+                        {cartflag.includes(EachItem._id)
+                          ? "Added"
+                          : "Add to Cart"}
                       </button>
                     </div>
                   </div>
@@ -118,6 +166,27 @@ const RestaurantDisplayMenu = () => {
             ))}
         </div>
       </div>
+
+      {cart && (
+        <div className="fixed w-full bottom-5 flex items-center justify-center">
+          <div className="bg-(--color-secondary) rounded-3xl w-2xl py-2 px-5">
+            <div className="flex items-center justify-between">
+              <div className="text-white font-bold">
+                Items: {cart.cartItem.length}
+              </div>
+              <div className="text-white font-bold flex gap-4 items-center">
+                <span>₹ : {cart.cartValue}</span>
+                <button
+                  className="bg-(--color-primary) text-white px-6 py-2 rounded hover:bg-(--color-primary-hover) transition disabled:bg-gray-300"
+                  onClick={handleCheckout}
+                >
+                  Proceed to Checkout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

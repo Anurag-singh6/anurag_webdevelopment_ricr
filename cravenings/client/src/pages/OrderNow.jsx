@@ -29,7 +29,7 @@ const OrderNow = () => {
 
   const handleResturantClick = (resturantinfo) => {
     console.log("resturant clicked");
-    navigate("/restaurantMenu",{state: resturantinfo})
+    navigate("/restaurantMenu", { state: resturantinfo });
   };
 
   if (loading) {
@@ -48,7 +48,7 @@ const OrderNow = () => {
             <div
               className="h-100 border border-gray-200 rounded-xl p-2 group cursor-pointer hover:shadow-xl hover:border-(--color-secondary) duration-100"
               key={idx}
-              onClick={handleResturantClick}
+              onClick={() => handleResturantClick(EacResturant)}
             >
               <img
                 src={EacResturant.photo.url}
