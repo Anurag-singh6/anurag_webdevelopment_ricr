@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/Authcontext";
 import api from "../config/Api";
 import toast from "react-hot-toast";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 const RestaurantDisplayMenu = () => {
   const { isLogin, role } = useAuth(); //if customer not login
@@ -29,9 +30,15 @@ const RestaurantDisplayMenu = () => {
     }
   };
 
+  const handleClearCart = () => {
+    localStorage.removeItem("cart");
+    setcart();
+    setcartflag([]);
+  };
+
   const handleAddtoCart = (NewItem) => {
     if (cart) {
-      if (cart.resturantId === NewItem.resturantId._id) {
+      if (cart.resturantId === NewItem.resturantID._id) {
         setcart((prev) => ({
           ...prev,
           cartItem: [...prev.cartItem, { ...NewItem, quantity: 1 }],
@@ -43,7 +50,7 @@ const RestaurantDisplayMenu = () => {
       }
     } else {
       setcart({
-        resturantId: NewItem.resturantId._id,
+        resturantId: NewItem.resturantID._id,
         cartItem: [{ ...NewItem, quantity: 1 }],
         cartValue: Number(NewItem.price),
       });
@@ -59,6 +66,10 @@ const RestaurantDisplayMenu = () => {
   };
 
   console.log(cart);
+
+  useEffect(() => {
+    cart && localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   useEffect(() => {
     fetchMenuItems();
@@ -172,7 +183,8 @@ const RestaurantDisplayMenu = () => {
           <div className="bg-(--color-secondary) rounded-3xl w-2xl py-2 px-5">
             <div className="flex items-center justify-between">
               <div className="text-white font-bold">
-                Items: {cart.cartItem.length}
+                <span>Items: {cart.cartItem.length}</span>
+                <button className="text-white px-2 py-2 rounded hover:bg-white/30 transition disabled:bg-gray-300" onClick={handleClearCart}><FaRegTrashAlt/></button>
               </div>
               <div className="text-white font-bold flex gap-4 items-center">
                 <span>₹ : {cart.cartValue}</span>
