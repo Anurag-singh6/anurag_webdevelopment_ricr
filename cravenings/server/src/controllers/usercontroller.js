@@ -1,4 +1,5 @@
 import User from "../models/usermodel.js";
+import Order from "../models/ordermodel.js";
 import cloudinary from "../config/cloudinary.js";
 import bcrypt from "bcrypt";
 
@@ -27,25 +28,25 @@ export const UserUpdate = async (req, res, next) => {
     }
     if (!city || !pin) {
       const error = new Error("City and PIN Code are required");
-      error.statusCode = 400;
+      error.statuscode = 400;
       return next(error);
     }
     // Validate email format
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       const error = new Error("Invalid email format");
-      error.statusCode = 400;
+      error.statuscode = 400;
       return next(error);
     }
     // Validate mobile number (10 digits)
     if (!/^\d{10}$/.test(mobileno.replace(/\D/g, ""))) {
       const error = new Error("Mobile number must be 10 digits");
-      error.statusCode = 400;
+      error.statuscode = 400;
       return next(error);
     }
     // Validate PIN code (6 digits)
     if (!/^\d{6}$/.test(pin)) {
       const error = new Error("PIN code must be 6 digits");
-      error.statusCode = 400;
+      error.statuscode = 400;
       return next(error);
     }
     // Validate PAN format if provided
@@ -55,7 +56,7 @@ export const UserUpdate = async (req, res, next) => {
       !/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(documents.pan)
     ) {
       const error = new Error("Invalid PAN format");
-      error.statusCode = 400;
+      error.statuscode = 400;
       return next(error);
     }
     // Validate UPI format if provided
@@ -65,7 +66,7 @@ export const UserUpdate = async (req, res, next) => {
       !/^[a-zA-Z0-9._-]+@[a-zA-Z]{3,}$/.test(paymentDetails.upi)
     ) {
       const error = new Error("Invalid UPI format");
-      error.statusCode = 400;
+      error.statuscode = 400;
       return next(error);
     }
 
@@ -221,6 +222,52 @@ export const UserResetPassword = async (req, res, next) => {
     await currentuser.save();
 
     res.status(200).json({ message: "Password Reset Successfull" });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const UserPlaceOrder = async (req, res, next) => {
+  try {
+    const currentUser = req.user;
+
+    const { restaurantId, items, orderValue, status, review } = req.body;
+
+    console.log({ restaurantId, items, orderValue, status, review });
+
+    if (!restaurantId || !items || !orderValue || !status) {
+      const error = new Error("All fields required");
+      error.statuscode = 400;
+      return next(error);
+    }
+
+    const newOrder = await Order.create({
+      orderNumber: `ORD-${Date.now()}`,
+      restaurantId,
+      userId: currentUser._id,
+      items,
+      orderValue,
+      status,
+      review: review || "N/A",
+    });
+    res
+      .status(201)
+      .json({ message: "Order Placed Successfully", data: newOrder });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const UserAllOrders = async (req, res, next) => {
+  try {
+    const currentUser = req.user;
+    const orders = await Order.find({ userId: currentUser._id })
+      .populate("restaurantId")
+      .populate("riderId")
+      .sort({ createdAt: -1 });
+    res
+      .status(200)
+      .json({ message: "All orders fetched Successfully", data: orders });
   } catch (error) {
     next(error);
   }

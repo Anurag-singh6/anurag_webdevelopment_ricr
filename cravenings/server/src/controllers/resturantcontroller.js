@@ -1,4 +1,5 @@
 import Menu from "../models/menuSchema.js";
+import Order from "../models/ordermodel.js";
 import { UploadMultipleToCloudinary } from "../utils/imageUploader.js";
 
 export const ResturantAddMenuItem = async (req, res, next) => {
@@ -50,20 +51,6 @@ export const ResturantAddMenuItem = async (req, res, next) => {
     res
       .status(201)
       .json({ message: "Menu Item Added Successfully", data: newMenuItem });
-  } catch {
-    next(error);
-  }
-};
-
-export const GetRestaurantMenuItems = async (req, res, next) => {
-  try {
-    const CurrUser = req.user;
-
-    const menuItems = await Menu.find({ resturantID: CurrUser._id });
-
-    res
-      .status(200)
-      .json({ message: "Menu Items Fetched successfully", data: menuItems });
   } catch {
     next(error);
   }
@@ -126,6 +113,20 @@ export const RestaurantEditMenuItem = async (req, res, next) => {
     res.status(201).json({
       message: "Menu Item Updated Successfully",
     });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const GetRestaurantMenuItems = async (req, res, next) => {
+  try {
+    const CurrUser = req.user;
+
+    const menuItems = await Menu.find({ resturantID: CurrUser._id });
+
+    res
+      .status(200)
+      .json({ message: "Menu Items Fetched successfully", data: menuItems });
   } catch (error) {
     next(error);
   }
@@ -338,6 +339,24 @@ export const RestaurantResetPassword = async (req, res, next) => {
     await currentUser.save();
 
     res.status(200).json({ message: "Password Reset Successful" });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const GetAllPlacedOrder = async (req, res, next) => {
+  try {
+    const currentUser = req.user;
+
+    const allOrders = await Order.find({ restaurantId: currentUser._id })
+      .populate("userId")
+      .populate("riderId")
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      message: "All Placed Orders Fetched Successfully",
+      data: allOrders,
+    });
   } catch (error) {
     next(error);
   }

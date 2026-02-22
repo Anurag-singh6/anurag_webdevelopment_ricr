@@ -6,10 +6,11 @@ import Orders from "../../components/userDashboard/Orders";
 import Transaction from "../../components/userDashboard/Transaction";
 import Helpdesk from "../../components/userDashboard/Helpdesk";
 import { useAuth } from "../../context/Authcontext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Userdashboard = () => {
   const { role, isLogin } = useAuth();
+ // const ActiveTab = useLocation().state.tab;
   const navigate = useNavigate();
   const [active, setActive] = useState("overview");
   const [isOpen, setOpen] = useState(false);

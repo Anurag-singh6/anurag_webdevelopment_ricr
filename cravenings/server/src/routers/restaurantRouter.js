@@ -7,7 +7,8 @@ import {
   RestaurantEditMenuItem,
   RestaurantUpdate,
   RestaurantChangePhoto,
-  RestaurantResetPassword
+  RestaurantResetPassword,
+  GetAllPlacedOrder,
 } from "../controllers/resturantcontroller.js";
 import { ManagerProtect, protect } from "../middlewares/authmiddleware.js";
 
@@ -28,7 +29,7 @@ router.put(
   protect,
   ManagerProtect,
   upload.array("itemImages", 5),
-  RestaurantEditMenuItem,
+  RestaurantEditMenuItem
 );
 
 router.put("/update", protect, ManagerProtect, RestaurantUpdate);
@@ -37,13 +38,15 @@ router.patch(
   protect,
   ManagerProtect,
   upload.single("image"),
-  RestaurantChangePhoto,
+  RestaurantChangePhoto
 );
 router.patch(
   "/resetPassword",
   protect,
   ManagerProtect,
-  RestaurantResetPassword,
+  RestaurantResetPassword
 );
+
+router.get("/placedOrders", protect, ManagerProtect, GetAllPlacedOrder);
 
 export default router;
