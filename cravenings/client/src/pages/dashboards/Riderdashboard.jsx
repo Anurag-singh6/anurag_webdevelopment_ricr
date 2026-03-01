@@ -6,7 +6,6 @@ import RiderOverview from "../../components/riderDashboard/RiderOverview";
 import RiderProfile from "../../components/riderDashboard/RiderProfile";
 import RiderOrders from "../../components/riderDashboard/RiderOrders";
 import RiderTransaction from "../../components/riderDashboard/RiderTransaction";
-import Riderhelpdesk from "../../components/riderDashboard/Riderhelpdesk";
 
 const Riderdashboard = () => {
   const { role, isLogin } = useAuth();
@@ -27,7 +26,7 @@ const Riderdashboard = () => {
           <div className="border rounded shadow p-5 w-4xl mx-auto text-center bg-gray-100">
             <div className="text-5xl text-red-600">🚫</div>
             <div className="text-xl">
-              You are not login as Partner or Rider. Please Login again.
+              You are not login as Rider. Please Login again.
             </div>
           </div>
         </div>
@@ -50,11 +49,10 @@ const Riderdashboard = () => {
           />
         </div>
         <div className={`${isOpen ? "w-58/60": "w-48/60"} duration-300`}>
-        {active === "rideroverview" && <RiderOverview/>}
-        {active === "riderprofile" && <RiderProfile/>}
-        {active === "riderorders" && <RiderOrders/>}
-        {active === "ridertransaction" && <RiderTransaction/>}
-        {active === "riderhelpdesk" && <Riderhelpdesk/>}
+        {active === "overview" && <RiderOverview/>}
+        {active === "profile" && <RiderProfile/>}
+        {active === "current-orders" && <RiderOrders/>}
+        {active === "order-history" && <RiderTransaction/>}
         </div>
       </div>
     </>

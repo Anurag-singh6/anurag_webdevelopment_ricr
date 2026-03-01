@@ -24,18 +24,15 @@ const App = () => {
         <Toaster />
         <Header />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Register />}></Route>
-          <Route path="/userdashboard" element={<UserDashboard />}></Route>
-          <Route path="/rider-dashboard" element={<Riderdashboard />}></Route>
-          <Route
-            path="/resturant-dashboard"
-            element={<Resturantdashboard />}
-          ></Route>
-          <Route path="/admin-dashboard" element={<Admindashboard />}></Route>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/userdashboard" element={<UserDashboard />} />
+          <Route path="/rider-dashboard" element={<Riderdashboard />} />
+          <Route path="/resturant-dashboard" element={<Resturantdashboard />} />
+          <Route path="/admin-dashboard" element={<Admindashboard />} />
           <Route path="/order-now" element={<OrderNow />} />
           <Route path="/restaurantMenu" element={<RestaurantDisplayMenu />} />
           <Route path="/checkout-page" element={<Checkoutpage />} />

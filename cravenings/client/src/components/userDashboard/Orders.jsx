@@ -13,7 +13,7 @@ const Orders = () => {
     try {
       const res = await api.get("/user/placedorders");
       setorders(res.data.data);
-      toast.success(res.data.data);
+      toast.success(res.data.message);
     } catch (error) {
       console.log(error);
       toast.error(error?.response?.data?.message || "Unknown Error");
