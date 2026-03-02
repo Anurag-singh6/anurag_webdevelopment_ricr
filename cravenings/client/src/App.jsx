@@ -8,7 +8,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
-import UserDashboard from "./pages/dashboards/UserDashboard.jsx";
+import UserDashboard from "./pages/dashboards/Userdashboard.jsx";
 import Riderdashboard from "./pages/dashboards/Riderdashboard.jsx";
 import Resturantdashboard from "./pages/dashboards/Resturantdashboard.jsx";
 import Admindashboard from "./pages/dashboards/Admindashboard.jsx";

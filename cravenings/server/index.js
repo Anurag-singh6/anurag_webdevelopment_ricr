@@ -8,7 +8,8 @@ import AuthRouter from "./src/routers/authrouter.js";
 import PublicRouter from "./src/routers/publicrouter.js";
 import UserRouter from "./src/routers/UserRouter.js";
 import RestaurantRouter from "./src/routers/restaurantRouter.js";
-import RiderRouter from "./src/routers/riderRouter.js"
+import RiderRouter from "./src/routers/riderRouter.js";
+import { verifyRazorPayConnect } from "./src/config/razorpay.js";
 
 const app = express();
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
@@ -20,7 +21,7 @@ app.use("/auth", AuthRouter);
 app.use("/public", PublicRouter);
 app.use("/user", UserRouter);
 app.use("/restaurant", RestaurantRouter);
-app.use("/rider",RiderRouter);
+app.use("/rider", RiderRouter);
 
 app.get("/", (req, res) => {
   console.log("Server is running");
@@ -43,5 +44,12 @@ app.listen(port, async () => {
     console.log("Cloudinary api is working ", res);
   } catch (error) {
     console.error("Error in connecting cloudinary api ", error);
+  }
+  try {
+    //show in console a message of razorpay
+    const res = await verifyRazorPayConnect();
+    console.log("Razor Pay Connected", res);
+  } catch (error) {
+    console.error("Error Connecting RazorPay API: ", error);
   }
 });

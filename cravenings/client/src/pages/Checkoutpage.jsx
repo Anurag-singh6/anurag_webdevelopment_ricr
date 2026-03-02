@@ -11,16 +11,22 @@ const PromoCode = {
   CRAVE: 10,
 };
 
+const AvailaablePaymentMethod = [
+  { id: "razorPay", label: "Pay Online" },
+  { id: "cod", label: "Cash on Delivery" },
+];
+
 const Checkoutpage = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
 
   const [cart, setcart] = useState(JSON.parse(localStorage.getItem("cart"))); //get cart details stored in local
-  console.log("cartcheck ", cart);
+  // console.log("cartcheck ", cart);
   const [paymentMethod, setpayementMethod] = useState("credit-card");
   const [isProcessing, setisProcessing] = useState(false);
   const [promoCode, setpromocode] = useState("");
   const [appliedpromo, setappliedpromo] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState("pending");
 
   //tax charges calculation
   const tax_rate = 0.05; //5% tax
@@ -110,14 +116,73 @@ const Checkoutpage = () => {
         subtotal,
         tax,
         total,
-        discountType: promoCode,
+        promoCode,
         deliveryFee: 50,
         discountPercentage: PromoCode[promoCode.toUpperCase()],
         paymentMethod,
+        paymentStatus,
       },
       status: "pending",
       review: {},
     };
+  };
+
+  const handlePayment = async () => {
+    try {
+      //call payment gateway API
+      setPaymentStatus("paid");
+    } catch (error) {
+      setPaymentStatus("failed");
+    }
+  };
+
+  const handleRazorpayPayment = async () => {
+    const { total } = calculatePrices();
+    try {
+      const keyRes = await api.get("/payment/getRazorpayKey");
+      const key = keyRes.data.key;
+
+      const orderRes = await api.post("/payment/createOrder", {
+        amount: total,
+      });
+
+      const orderdata = orderRes.data;
+
+      //inbuilt razorpay
+
+      const option = {
+        key,
+        amount: orderdata.amount,
+        currency: orderdata.currency,
+        name: "Cravings", //your business name
+        description: "Test Transaction",
+        image: "https://placehold.co/600x400?text=CG",
+        order_id: orderdata.id, //this is sample order id. pass the `id` obtained in the response of step 1
+        callback_url: `${import.meta.env.VITE_FE_URL}/paymentSuccess`,
+        prefill: {
+          name: user.fullname, //customer name
+          email: user.email,
+          contact: user.mobileno, //customer phone number
+        },
+        notes: {
+          address: "Razorpay Corporate Office",
+        },
+        theme: {
+          color: "#F16D34",
+        },
+      };
+
+      const razorpay = new window.Razorpay(option);
+      razorpay.open();
+
+      razorpay.on("payment.failed", function (response) {
+        console.log("Payment Failed");
+        toast.error("Payment Failed");
+      });
+    } catch (error) {
+      console.log(error);
+      toast.error(error?.response?.data?.message || "Unknown Error");
+    }
   };
 
   const handlePlaceOrder = async () => {
@@ -128,23 +193,31 @@ const Checkoutpage = () => {
     }
 
     setisProcessing(true);
+    console.log("Lets Start Payment");
 
-    const payload = GeneratePayload();
-    console.log(payload);
+    if (paymentMethod === "razorPay") {
+      console.log("Calling Razorpay");
 
-    try {
-      //payement gateway
-      const res = await api.post("/user/placeorder", payload);
-      toast.success(res.data.message);
-      localStorage.removeItem("cart");
-      navigate("/userdashboard", { state: { tab: "orders" } });
-    } catch (error) {
-      console.error("Order placement error: ", error);
-      toast.error(error?.response?.data?.message || "Failed to place order");
-    } finally {
-      setisProcessing(false);
+      handleRazorpayPayment();
     }
   };
+
+  //   const payload = GeneratePayload();
+  //   console.log(payload);
+
+  //   try {
+  //     //payement gateway
+  //     const res = await api.post("/user/placeorder", payload);
+  //     toast.success(res.data.message);
+  //     localStorage.removeItem("cart");
+  //     navigate("/userdashboard", { state: { tab: "orders" } });
+  //   } catch (error) {
+  //     console.error("Order placement error: ", error);
+  //     toast.error(error?.response?.data?.message || "Failed to place order");
+  //   } finally {
+  //     setisProcessing(false);
+  //   }
+  // };
 
   if (!user || !cart) {
     return (
@@ -397,33 +470,36 @@ const Checkoutpage = () => {
                     className="font-bold mb-4"
                     style={{ color: "var(--color-primary)" }}
                   >
-                    Payement Method
+                    Payment Method
                   </h3>
 
                   <div className="space-y-3">
-                    {[
-                      { id: "credit-card", label: "💳 Credit/Debit Card" },
-                      { id: "upi", label: "📱 UPI" },
-                      { id: "wallet", label: "👛 Digital Wallet" },
-                      { id: "cod", label: "🏠 Cash on Delivery" },
-                    ].map((method) => (
-                      <label
-                        key={method.id}
-                        className="flex items-center cursor-pointer"
-                      >
+                    <label className="flex items-center cursor-pointer">
+                      <input
+                        type="radio"
+                        name="payment"
+                        value="razorPay"
+                        checked={paymentMethod === "razorPay"}
+                        onChange={(e) => setpayementMethod(e.target.value)}
+                        className="w-4 h-4"
+                      />
+                      <span className="ml-3 text-gray-700">{"Pay Online"}</span>
+                    </label>
+                    {total < 1000 && (
+                      <label className="flex items-center cursor-pointer">
                         <input
                           type="radio"
                           name="payment"
-                          value={method.id}
-                          checked={paymentMethod === method.id}
+                          value="cod"
+                          checked={paymentMethod === "cod"}
                           onChange={(e) => setpayementMethod(e.target.value)}
                           className="w-4 h-4"
                         />
                         <span className="ml-3 text-gray-700">
-                          {method.label}
+                          {"Cash on Delivery"}
                         </span>
                       </label>
-                    ))}
+                    )}
                   </div>
                 </div>
 
