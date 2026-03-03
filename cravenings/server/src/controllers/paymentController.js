@@ -14,7 +14,7 @@ export const RazorPayCreateOrder = async (req, res, next) => {
 
     if (!amount) {
       const error = new Error("Invaild Amount");
-      error.statusCode = 400;
+      error.statuscode = 400;
       return next(error);
     }
 
@@ -41,6 +41,32 @@ export const RazorPayCreateOrder = async (req, res, next) => {
 
 export const RazorPayVerifyPayment = async (req, res, next) => {
   try {
+    const { paymentID, orderID, signature } = req.body;
+
+    console.log({ paymentID, orderID, signature });
+
+    if (!paymentID || !orderID || !signature) {
+      const error = new Error("Invaild Payment Details");
+      error.statuscode = 400;
+      return next(error);
+    }
+
+    const orderString = orderID + "|" + paymentID;
+    const generatedSignature = crypto
+      .createHmac("sha256", process.env.RAZORPAY_TEST_API_KEY)
+      .update(orderString.toString())
+      .digest("hex");
+
+      console.log(generatedSignature);
+
+      if(generatedSignature !== signature){
+        const error = new Error("Payment Verification Failed");
+        error.statuscode=400;
+        return next(error);
+      }
+
+      res.status(200).json({message: "Payment Verified Successfully"});
+      
   } catch {
     next(error);
   }

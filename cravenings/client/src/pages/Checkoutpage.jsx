@@ -22,7 +22,7 @@ const Checkoutpage = () => {
 
   const [cart, setcart] = useState(JSON.parse(localStorage.getItem("cart"))); //get cart details stored in local
   // console.log("cartcheck ", cart);
-  const [paymentMethod, setpayementMethod] = useState("credit-card");
+  const [paymentMethod, setpayementMethod] = useState("razorPay");
   const [isProcessing, setisProcessing] = useState(false);
   const [promoCode, setpromocode] = useState("");
   const [appliedpromo, setappliedpromo] = useState(false);
@@ -106,7 +106,7 @@ const Checkoutpage = () => {
     }
   };
 
-  const GeneratePayload = () => {
+  const GeneratePayload = (RazorpayOrderId, RazorpayPaymentID) => {
     const { subtotal, tax, total } = calculatePrices();
     return {
       restaurantId: cart.resturantID,
@@ -119,21 +119,14 @@ const Checkoutpage = () => {
         promoCode,
         deliveryFee: 50,
         discountPercentage: PromoCode[promoCode.toUpperCase()],
-        paymentMethod,
-        paymentStatus,
+        paymentMethod: "razorPay",
+        paymentStatus: "paid",
+        razorpayOrderID: RazorpayOrderId,
+        razorpayPaymentID: "RazorpayPaymentID",
       },
       status: "pending",
       review: {},
     };
-  };
-
-  const handlePayment = async () => {
-    try {
-      //call payment gateway API
-      setPaymentStatus("paid");
-    } catch (error) {
-      setPaymentStatus("failed");
-    }
   };
 
   const handleRazorpayPayment = async () => {
@@ -146,19 +139,60 @@ const Checkoutpage = () => {
         amount: total,
       });
 
-      const orderdata = orderRes.data;
+      const orderdata = orderRes.data.data;
+
+      console.log(orderdata);
 
       //inbuilt razorpay
 
       const option = {
         key,
-        amount: orderdata.amount,
+        amount: String(orderdata.amount),
         currency: orderdata.currency,
         name: "Cravings", //your business name
         description: "Test Transaction",
         image: "https://placehold.co/600x400?text=CG",
         order_id: orderdata.id, //this is sample order id. pass the `id` obtained in the response of step 1
-        callback_url: `${import.meta.env.VITE_FE_URL}/paymentSuccess`,
+        //callback_url: `${import.meta.env.VITE_FE_URL}/paymentSuccess`,
+        //this run on payment success
+        handler: async (response) => {
+          try {
+            console.log(response);
+
+            const VerifyPaymentPayload = {
+              paymentID: response.razorpay_payment_id,
+              orderID: response.razorpay_order_id,
+              signature: response.razorpay_signature,
+            };
+
+            console.log(VerifyPaymentPayload);
+            const res = await api.post(
+              "/payment/verifyPayment",
+              VerifyPaymentPayload
+            );
+
+            //placeorder
+            const payload = GeneratePayload(
+              response.razorpay_order_id,
+              response.razorpay_payment_id
+            );
+
+            const OrderRes = await api.post("/user/placeorder", payload);
+            navigate("/paymentSuccess", { state: OrderRes.data.data });
+          } catch (error) {
+            console.log(error);
+            toast.error(error?.response?.data?.message || "Unknown Error");
+          } finally {
+            setisProcessing(false);
+          }
+        },
+        //this run on closing the razor pay modal
+        modal: {
+          ondismiss: ()=>{
+            toast.error("Please Complete your Payment to Proceed");
+            setisProcessing(false);
+          },
+        },
         prefill: {
           name: user.fullname, //customer name
           email: user.email,
@@ -171,11 +205,13 @@ const Checkoutpage = () => {
           color: "#F16D34",
         },
       };
+      console.log(option);
+      
 
       const razorpay = new window.Razorpay(option);
       razorpay.open();
 
-      razorpay.on("payment.failed", function (response) {
+      razorpay.on("payment.failed", (response)=> {
         console.log("Payment Failed");
         toast.error("Payment Failed");
       });
@@ -485,7 +521,7 @@ const Checkoutpage = () => {
                       />
                       <span className="ml-3 text-gray-700">{"Pay Online"}</span>
                     </label>
-                    {total < 1000 && (
+                    {/* {total < 1000 && (
                       <label className="flex items-center cursor-pointer">
                         <input
                           type="radio"
@@ -499,7 +535,7 @@ const Checkoutpage = () => {
                           {"Cash on Delivery"}
                         </span>
                       </label>
-                    )}
+                    )} */}
                   </div>
                 </div>
 

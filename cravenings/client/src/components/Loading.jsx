@@ -4,8 +4,8 @@ import loadinggif from "../assets/preloader.gif";
 const Loading = () => {
   return (
     <>
-      <div className="w-full h-full flex justify-center items-center">
-        <img src={loadinggif} alt="" className="w-40 h-40"></img>
+      <div className="w-full h-full flex justify-center items-center ml-[65vh] mr-[65vh]">
+        <img src={loadinggif} alt="" className="object-center"></img>
       </div>
     </>
   );
