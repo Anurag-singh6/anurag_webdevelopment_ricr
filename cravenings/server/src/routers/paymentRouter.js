@@ -1,5 +1,10 @@
 import express from "express";
 import { protect } from "../middlewares/authmiddleware.js";
+import {
+  RazorpayGetKey,
+  RazorPayCreateOrder,
+  RazorPayVerifyPayment,
+} from "../controllers/paymentController.js";
 
 const router = express.Router();
 
