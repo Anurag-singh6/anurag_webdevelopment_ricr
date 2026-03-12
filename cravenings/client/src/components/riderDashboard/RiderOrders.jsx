@@ -11,7 +11,7 @@ const RiderOrders = () => {
   const [isLoading, setLoading] = useState(false);
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [viewdetailsModalOpen, setViewDetailsModalOpen] = useState(false);
-  const [riderLocation, setRiderLocation] = useState(user.geoLoaction);
+  const [riderLocation, setRiderLocation] = useState(user.geoLocation);
 
   const statusBadgeClass = (status = "") => {
     if (["delivered"].includes(status)) return "bg-green-100 text-green-800";
@@ -33,8 +33,8 @@ const RiderOrders = () => {
         setAvailableOrder([]);
       } else {
         setCurrentOrder([]);
-        console.log("rideerLocation ", riderLocation);
-        res = await api.get("/rider/availableOrder", riderLocation);
+        console.log("riderLocation ", riderLocation);
+        res = await api.post("/rider/availableOrder", riderLocation);
         setAvailableOrder(res.data.data || []);
       }
     } catch (error) {
@@ -61,8 +61,8 @@ const RiderOrders = () => {
   const handleDirection = (toLocation) => {
     let to;
     toLocation === "restaurant"
-      ? (to = currentOrder[0].restaurantId?.geoLoaction)
-      : (to = currentOrder[0].userId?.geoLoaction);
+      ? (to = currentOrder[0].restaurantId?.geoLocation)
+      : (to = currentOrder[0].userId?.geoLocation);
 
     const URL = `https://www.google.com/maps/dir/?api=1&origin=${riderLocation.lat},${riderLocation.lon}&destination=${to.lat},${to.lon}&travelmode=two-wheeler`;
 
@@ -96,6 +96,7 @@ const RiderOrders = () => {
       </div>
     );
   }
+  console.log("Available order ",availableOrder);
 
   return (
     <div className="bg-gray-50 rounded-lg p-6 h-full overflow-y-auto">
@@ -304,8 +305,8 @@ const RiderOrders = () => {
           width="500"
           height="500"
           loading="lazy"
-          allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade"
+          allowFullScreen
+          referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
     </div>

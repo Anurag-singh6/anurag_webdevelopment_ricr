@@ -39,7 +39,7 @@ const orderSchema = new mongoose.Schema(
         type: Number,
         required: true,
       },
-      discountType: {
+       promoCode: {
         type: String,
       },
       discountPercentage: {
@@ -79,6 +79,7 @@ const orderSchema = new mongoose.Schema(
         "refused",
         "damaged",
         "cancelled",
+        "rejected",
       ],
       default: "pending",
     },

@@ -17,7 +17,7 @@ const RiderSlidebar = ({ active, setActive, isOpen, setOpen }) => {
   const menuItems = [
     { key: "overview", title: "Overview", icon: <TbChartTreemap /> },
     { key: "profile", title: "Profile", icon: <ImProfile /> },
-    { key: "current-order", title: "Current Orders", icon: <TiShoppingCart /> },
+    { key: "current-orders", title: "Current Orders", icon: <TiShoppingCart /> },
     { key: "order-history", title: "Order History", icon: <FaHistory /> },
   ];
 
@@ -36,7 +36,7 @@ const RiderSlidebar = ({ active, setActive, isOpen, setOpen }) => {
 
   return (
     <>
-      <div className="p-2 flex flex-col justify-between h-full">
+      <div className="p-2 text-white flex flex-col justify-between h-full">
         <div>
           <div className="h-10 text-xl font-bold flex gap-5 items-center mb-3">
             <button
@@ -72,7 +72,7 @@ const RiderSlidebar = ({ active, setActive, isOpen, setOpen }) => {
         </div>
 
         <div>
-          <button className="flex gap-3 items-center text-lg ps-2 rounded-xl h-10 w-full text-nowrap overflow-hidden duration-300 hover:bg-red-500 text-red-600" onClick={handleLogout}>
+          <button className="flex gap-3 items-center text-lg ps-2 rounded-xl h-10 w-full text-nowrap overflow-hidden duration-300 hover:bg-red-500 text-white font-bold" onClick={handleLogout}>
             <MdLogout/>
             {!isOpen && "Logout"}
           </button>

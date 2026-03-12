@@ -4,7 +4,6 @@ import Useroverview from "../../components/userDashboard/Useroverview";
 import Profile from "../../components/userDashboard/Profile";
 import Orders from "../../components/userDashboard/Orders";
 import Transaction from "../../components/userDashboard/Transaction";
-import Helpdesk from "../../components/userDashboard/Helpdesk";
 import { useAuth } from "../../context/Authcontext";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -55,7 +54,6 @@ const Userdashboard = () => {
           {active === "profile" && <Profile />}
           {active === "orders" && <Orders />}
           {active === "transaction" && <Transaction />}
-          {active === "helpdesk" && <Helpdesk />}
         </div>
       </div>
     </>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { GrOverview } from "react-icons/gr";
 import { CgProfile } from "react-icons/cg";
-import { MdOutlineLiveHelp } from "react-icons/md";
 import { TbTransactionRupee } from "react-icons/tb";
 import { FaBorderAll } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -17,7 +16,6 @@ const Sildebar = ({ active, setActive, isOpen, setOpen }) => {
     { key: "profile", title: "Profile", icon: <CgProfile /> },
     { key: "orders", title: "Orders", icon: <FaBorderAll /> },
     { key: "transaction", title: "Transaction", icon: <TbTransactionRupee /> },
-    { key: "helpdesk", title: "Help Desk", icon: <MdOutlineLiveHelp /> },
   ];
 
   const handleLogout = async () => {
