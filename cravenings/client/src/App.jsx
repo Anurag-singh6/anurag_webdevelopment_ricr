@@ -41,6 +41,7 @@ const App = () => {
 
           <Route path="*" element={<Notfound />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </>
   );
