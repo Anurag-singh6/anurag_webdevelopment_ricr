@@ -151,7 +151,7 @@ export const RestaurantUpdate = async (req, res, next) => {
     } = req.body;
     const currentUser = req.user;
 
-    if (!fullname || !email || !mobileNumber) {
+    if (!fullname || !email || !mobileno) {
       const error = new Error(
         "Full Name, Email, and Mobile Number are required"
       );

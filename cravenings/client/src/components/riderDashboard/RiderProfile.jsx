@@ -7,6 +7,8 @@ import { BiSolidBank } from "react-icons/bi";
 import UserImage from "../../assets/customer.jpg";
 import api from "../../config/Api";
 import toast from "react-hot-toast";
+import RiderEdit from "./modals/RiderEdit";
+import RiderResetpass from "./modals/RiderResetpass";
 
 const RiderProfile = () => {
   const { user, setUser } = useAuth();
@@ -148,8 +150,107 @@ const RiderProfile = () => {
         </div>
 
         {/* Personal info section */}
-        
+        <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+          <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+            <span className="w-1 h-6 bg-(--color-secondary) rounded"></span>
+            Personal Information
+          </h2>
+          <div className="space-y-1">
+            {renderField("Date of Birth", user?.dob)}
+            {renderField("Gender", user?.gender)}
+            {renderField("Address", user?.address)}
+            {renderField("City", user?.city)}
+            {renderField("PIN Code", user?.pin)}
+          </div>
+        </div>
+
+        {/* Location Section */}
+        {(user?.geoLocation?.lat !== "N/A" ||
+          user?.geoLocation?.lon !== "N/A") && (
+          <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+              <FaMapLocationDot className="text-(--color-secondary)" />
+              Geo Location
+            </h2>
+            <div className="space-y-1">
+              {renderField("Latitude", user?.geoLocation?.lat)}
+              {renderField("Longitude", user?.geoLocation?.lon)}
+            </div>
+          </div>
+        )}
+
+        {/* Payment Details */}
+        {user?.paymentDetails?.upi !== "N/A" && (
+          <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+              <FaWallet className="text-(--color-secondary)" />
+              Payment Details
+            </h2>
+            <div className="space-y-1">
+              {renderField("UPI ID", user?.paymentDetails?.upi)}
+            </div>
+          </div>
+        )}
+
+        {/* Bank Account details section */}
+        {(user?.paymentDetails?.account_number !== "N/A" ||
+          user?.paymentDetails?.ifs_Code !== "N/A") && (
+          <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+              <BiSolidBank className="text-(--color-secondary)" />
+              Bank Account Details
+            </h2>
+            <div className="space-y-1">
+              {renderField(
+                "Account Number",
+                user?.paymentDetails?.account_number
+              )}
+              {renderField("IFSC Code", user?.paymentDetails?.ifs_Code)}
+            </div>
+          </div>
+        )}
+
+        {/* Business Documents Section */}
+        {Object.values(user?.documents || {}).some((doc) => doc !== "N/A") && (
+          <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+              <FaFileAlt className="text-(--color-secondary)" />
+              Driving Documents
+            </h2>
+            <div className="space-y-1">
+              {renderField("RC (Registration)", user?.documents?.rc)}
+              {renderField("Driving License", user?.documents?.dl)}
+              {renderField("UIDAI", user?.documents?.uidai)}
+              {renderField("PAN", user?.documents?.pan)}
+            </div>
+          </div>
+        )}
+
+        {/* Account metadata */}
+        <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200 text-sm">
+          <h2 className="text-lg font-bold text-gray-800 mb-3">
+            Account Details
+          </h2>
+          <div className="grid grid-cols-2 gap-4 text-gray-600">
+            <div>
+              <span className="font-medium">Account ID:</span>
+              <p className="text-gray-500 font-mono text-xs break-all">
+                {user?._id}
+              </p>
+            </div>
+            <div>
+              <span className="font-medium">Member Since:</span>
+              <p className="text-gray-900">
+                {user?.createdAt
+                  ? new Date(user.createdAt).toLocaleDateString("en-IN")
+                  : "N/A"}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
+      {isEditModol && <RiderEdit onclose={() => setEditModol(false)} />}
+      {isResetModal && <RiderResetpass onclose={() => setResetModel(false)} />}
     </>
   );
 };

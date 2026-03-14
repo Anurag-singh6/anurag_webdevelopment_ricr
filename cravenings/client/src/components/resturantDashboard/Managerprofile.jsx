@@ -23,7 +23,7 @@ const Managerprofile = () => {
     form_data.append("image", photo);
 
     try {
-      const res = await api.patch("/user/changePhoto", form_data);
+      const res = await api.patch("/restaurant/changePhoto", form_data);
 
       toast.success(res.data.message);
       setUser(res.data.data);
