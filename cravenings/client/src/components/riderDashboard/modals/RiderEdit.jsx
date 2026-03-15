@@ -8,7 +8,11 @@ const RiderEdit = ({ onclose }) => {
     fullname: user?.fullname || "",
     email: user?.email || "",
     mobileno: user?.mobileno || "",
-    gender: user?.gender || "",
+    gender: (() => {
+      const g = user?.gender?.toLowerCase();
+      if (g === "other") return "others";
+      return g || "";
+    })(),
     dob: user?.dob || "",
     address: user?.address || "",
     city: user?.city || "",
@@ -267,9 +271,9 @@ const RiderEdit = ({ onclose }) => {
                     className="w-full border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="">Select Gender</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Other</option>
                   </select>
                 </div>
                 <div>
@@ -409,6 +413,34 @@ const RiderEdit = ({ onclose }) => {
                       {validateError.pan}
                     </p>
                   )}
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Driving License (DL)
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.documents.dl}
+                    onChange={(e) =>
+                      handleNestedChange("documents", "dl", e.target.value)
+                    }
+                    className="w-full border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Driving License number"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Registration Certificate (RC)
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.documents.rc}
+                    onChange={(e) =>
+                      handleNestedChange("documents", "rc", e.target.value)
+                    }
+                    className="w-full border border-gray-300 rounded-md shadow-sm p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Vehicle RC number"
+                  />
                 </div>
               </div>
             </div>

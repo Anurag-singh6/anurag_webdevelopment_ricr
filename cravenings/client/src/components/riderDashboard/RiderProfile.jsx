@@ -23,7 +23,7 @@ const RiderProfile = () => {
     form_data.append("image", photo);
 
     try {
-      const res = await api.patch("/user/changePhoto", form_data);
+      const res = await api.patch("/rider/changePhoto", form_data);
 
       toast.success(res.data.message);
       setUser(res.data.data);
@@ -43,7 +43,7 @@ const RiderProfile = () => {
       }, 1000);
     }
   };
-  const renderField = (label, value) => {
+  const renderField = (label, value) => (
     <div className="flex justify-between py-2 px-3 border-b border-gray-200 last:border-b-0">
       <span className="text-gray-600 font-medium">{label}:</span>
       <span className="text-gray-900 font-semibold">
@@ -53,8 +53,8 @@ const RiderProfile = () => {
           <span className="text-gray-400">Not provided</span>
         )}
       </span>
-    </div>;
-  };
+    </div>
+  );
   return (
     <>
       <div className="bg-gray-50 rounded-lg p-6 h-full overflow-y-auto space-y-6">

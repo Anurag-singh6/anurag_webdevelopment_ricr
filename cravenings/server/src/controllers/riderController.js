@@ -122,7 +122,7 @@ export const RiderChangePhoto = async (req, res, next) => {
       return next(error);
     }
 
-    cosole.log("DP", dp);
+    console.log("DP", dp);
 
     if (currentUser.photo.publicID) {
       await cloudinary.uploader(currentUser.photo.publicID);
@@ -234,6 +234,8 @@ export const RiderUpdate = async (req, res, next) => {
     // Update nested documents
     if (documents) {
       currentUser.documents = {
+        gst: "N/A", // Not applicable for riders
+        fssai: "N/A", // Not applicable for riders
         rc: documents.rc || currentUser.documents?.rc || "N/A",
         dl: documents.dl || currentUser.documents?.dl || "N/A",
         uidai: documents.uidai || currentUser.documents?.uidai || "N/A",
@@ -270,7 +272,7 @@ export const RiderUpdate = async (req, res, next) => {
 
     res
       .status(200)
-      .json({ message: "User Updated Successfully", data: currentUser });
+      .json({ message: "Rider Updated Successfully", data: currentUser });
   } catch (error) {
     next(error);
   }
