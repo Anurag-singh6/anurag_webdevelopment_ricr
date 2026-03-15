@@ -280,16 +280,16 @@ export const RiderUpdate = async (req, res, next) => {
 
 export const RiderResetPassword = async (req, res, next) => {
   try {
-    const { oldPassword, newPassword } = req.body;
+    const { oldpassword, newpassword } = req.body;
     const currentUser = req.user;
 
-    if (!oldPassword || !newPassword) {
+    if (!oldpassword || !newpassword) {
       const error = new Error("All feilds required");
       error.statuscode = 400;
       return next(error);
     }
 
-    const isVerified = await bcrypt.compare(oldPassword, currentUser.password);
+    const isVerified = await bcrypt.compare(oldpassword, currentUser.password);
     if (!isVerified) {
       const error = new Error("Old Password didn't match");
       error.statuscode = 401;
@@ -297,7 +297,7 @@ export const RiderResetPassword = async (req, res, next) => {
     }
 
     const salt = await bcrypt.genSalt(10);
-    const hashPassword = await bcrypt.hash(newPassword, salt);
+    const hashPassword = await bcrypt.hash(newpassword, salt);
 
     currentUser.password = hashPassword;
 
