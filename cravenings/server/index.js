@@ -13,7 +13,7 @@ import { verifyRazorPayConnect } from "./src/config/razorpay.js";
 import PaymentRouter from "./src/routers/paymentRouter.js";
 
 const app = express();
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "https://cravening.netlify.app/", credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan("dev"));
