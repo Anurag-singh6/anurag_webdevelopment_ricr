@@ -1,4 +1,0 @@
-[build]
-  base = "cravenings/client"
-  publish = "build"
-  command = "npm run build"
