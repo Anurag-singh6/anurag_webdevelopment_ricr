@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import pizza from "../assets/pizza.png";
 import { useNavigate } from "react-router-dom";
 import spiceking from "../assets/spiceking.png";
@@ -15,9 +15,40 @@ import fastd from "../assets/gif/fastd.gif";
 import pay from "../assets/gif/pay.gif";
 import quality from "../assets/gif/quality.gif";
 import support from "../assets/gif/support.gif";
+import api from "../config/Api";
+import toast from "react-hot-toast";
 
 const Home = () => {
   const navigate = useNavigate();
+  const [restaurants, setRestaurants] = useState([]);
+
+  const fetchRestaurants = async () => {
+    try {
+      const res = await api.get("/public/allRestaurants");
+      setRestaurants(res.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchRestaurants();
+  }, []);
+
+  const getRestaurantByName = (name) => {
+    return restaurants.find((rest) => rest.name === name);
+  };
+
+  const handleAddToCart = (dish) => {
+    const restaurant = getRestaurantByName(dish.restaurant);
+    if (!restaurant) {
+      toast.error("Restaurant not found");
+      return;
+    }
+
+    // Navigate to restaurant menu with dish to add
+    navigate("/restaurantMenu", { state: { ...restaurant, dishToAdd: dish } });
+  };
 
   const featuredRestaurants = [
     {
@@ -251,7 +282,10 @@ const Home = () => {
                       </div>
                     </div>
                   </div>
-                  <button className="w-full px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition duration-300 font-medium text-xs sm:text-sm md:text-base lg:text-lg">
+                  <button 
+                    onClick={() => handleAddToCart(dish)}
+                    className="w-full px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition duration-300 font-medium text-xs sm:text-sm md:text-base lg:text-lg"
+                  >
                     Add to Cart
                   </button>
                 </div>

@@ -75,6 +75,26 @@ const RestaurantDisplayMenu = () => {
     fetchMenuItems();
   }, [data]);
 
+  useEffect(() => {
+    if (data.dishToAdd && menuitems) {
+      const itemToAdd = menuitems.find(item => item.name === data.dishToAdd.name);
+      if (itemToAdd) {
+        handleAddtoCart({ ...itemToAdd, resturantID: data._id });
+      }
+    }
+  }, [menuitems, data.dishToAdd]);
+
+  useEffect(() => {
+    if (data.dishToAdd && menuitems) {
+      const itemToAdd = menuitems.find(item => item.name === data.dishToAdd.name);
+      if (itemToAdd) {
+        handleAddtoCart({ ...itemToAdd, resturantID: data._id });
+        // Clear dishToAdd to avoid re-adding
+        // Since data is from useLocation, we can't modify it, but since it's one time, it's fine
+      }
+    }
+  }, [menuitems, data.dishToAdd]);
+
   return (
     <>
       <div className="w-7xl p-3 rounded shadow mx-auto mt-2">

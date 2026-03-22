@@ -67,15 +67,15 @@ const Managereditmodal = ({ onclose }) => {
       Error.pin = "Pin code must be 6 digits";
     }
 
-     if (!formData.restaurantName.trim()) {
-      newErrors.restaurantName = "Restaurant name is required";
+    if (!formData.restaurantName.trim()) {
+      Error.restaurantName = "Restaurant name is required";
     }
 
     if (
       formData.documents.pan &&
       !/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(formData.documents.pan)
     ) {
-      Error.pan = "Invaild PAN format.";
+      Error.pan = "Invalid PAN format.";
     }
 
     if (
@@ -97,7 +97,7 @@ const Managereditmodal = ({ onclose }) => {
     });
     //clear error for this field when starts typing
     if (validateError[name]) {
-      setFormData({ ...validateError, [name]: "" });
+      setValidationError({ ...validateError, [name]: "" });
     }
   };
   const handleNestedChange = (parent, field, value) => {
