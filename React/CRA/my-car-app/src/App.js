@@ -4,6 +4,8 @@ import Greating from "./pages/Greating";
 import TodoList from "./pages/TodoList";
 import UserProfile from "./pages/UserProfile";
 import BankDetails from "./pages/BankDetails";
+import ProductCard from "./pages/ProductCard";
+import sofa from "../src/sofablend2.png";
 
 const App = () => {
   const user = {
@@ -20,6 +22,13 @@ const App = () => {
     balance: 7890000,
     NOM: ["Alin", "Magreta", "Luke"],
   };
+  const product = {
+    name: "Sofa",
+    price: 8000,
+    image: sofa,
+    inStock: true,
+    tag: ["portable", "furniture"],
+  };
   return (
     <>
       <Header isLoggedIn={true}></Header>
@@ -28,6 +37,7 @@ const App = () => {
       <TodoList todos={["Learn React", "Build App"]}></TodoList>
       <UserProfile user={user}></UserProfile>
       <BankDetails userbank={userbank}></BankDetails>
+      <ProductCard product={product}></ProductCard>
     </>
   );
 };
