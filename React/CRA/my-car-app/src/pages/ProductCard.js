@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onAction, label }) => {
   return (
     <>
       <div className="productcard">
@@ -17,6 +17,9 @@ const ProductCard = ({ product }) => {
             <li key={idx}>{products}</li>
           ))}
         </ul>
+      </div>
+      <div>
+        <button onClick={onAction}>{label}</button>
       </div>
     </>
   );

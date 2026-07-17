@@ -1,6 +1,6 @@
 import React from "react";
 
-const BankDetails = ({ userbank }) => {
+const BankDetails = ({ userbank, ontoggled, isvisible}) => {
   const handleClick = () => {
     alert("Button is Clicked...!");
   };
@@ -16,6 +16,8 @@ const BankDetails = ({ userbank }) => {
       </ul>
       <div>
         <button className="btn" onClick={handleClick}>Click Me</button>
+        <button className="btn" onClick={ontoggled}>Toggled Message</button>
+        {isvisible && <p>This is the bank info toggled...!</p>}
       </div>
     </div>
   );

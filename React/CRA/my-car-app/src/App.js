@@ -29,15 +29,42 @@ const App = () => {
     inStock: true,
     tag: ["portable", "furniture"],
   };
+  const Actionhandled = () => {
+    alert("Action Triggered..!");
+  };
+
+  const handleInputChange = (value) => {
+    console.log("Input changed: ", value);
+  };
+  const handleAddtodo = () => {
+    console.log("Todo Added");
+  };
+  const handleCleartodo = () => {
+    console.log("todo cleared");
+  };
+  const handleToggle= ()=>{
+    console.log("togle visiblity...!");
+  }
+
   return (
     <>
       <Header isLoggedIn={true}></Header>
       <div>My component</div>
       <Greating></Greating>
-      <TodoList todos={["Learn React", "Build App"]}></TodoList>
+      <TodoList
+        todos={["Learn React", "Build App"]}
+        input=""
+        onInputChange={handleInputChange}
+        onAddtodo={handleAddtodo}
+        onCleartodo={handleCleartodo}
+      ></TodoList>
       <UserProfile user={user}></UserProfile>
-      <BankDetails userbank={userbank}></BankDetails>
-      <ProductCard product={product}></ProductCard>
+      <BankDetails userbank={userbank} isvisible={true} ontoggled={handleToggle}></BankDetails>
+      <ProductCard
+        product={product}
+        label="Perform Action"
+        onAction={Actionhandled}
+      ></ProductCard>
     </>
   );
 };
