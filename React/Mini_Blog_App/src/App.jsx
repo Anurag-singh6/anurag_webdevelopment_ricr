@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Home from "./pages/Home";
@@ -11,11 +11,19 @@ import Login from "./pages/Login";
 import ProtectedRoute from "./pages/ProtectedRoute";
 
 const App = () => {
+  const [count, setCount] = useState(0);
+  const [seconds, setSeconds] = useState(0);
   const post = [
     { id: 1, title: "First Post", content: "This is the First Post." },
     { id: 2, title: "Second Post", content: "This is the Second Post." },
   ];
   const isAuthenticated = true;
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSeconds((prev) => prev + 1);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
   return (
     <>
       <BrowserRouter>
@@ -57,6 +65,13 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
+      <div>
+        <h2>Count: {count}</h2>
+        <button onClick={() => setCount(count + 1)}>Increase</button>
+      </div>
+      <div>
+        <h2>Time: {seconds} Seconds</h2>;
+      </div>
     </>
   );
 };
